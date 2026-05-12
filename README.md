@@ -36,5 +36,7 @@ Wheel-Diametre: 56MM
 
 ### Robot Materials
 
-| (Photo) | Material desc |
-| (Photo2) | Material desc 2 | 
+| Materials | Material Descriptions |
+|--------|--------|
+|(Photo)|Material desc|
+|(Photo2)|Material desc 2| 
