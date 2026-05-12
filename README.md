@@ -6,9 +6,11 @@
 We can't exactly label anyone with a specific role, as we kind of had every role at once, with everyone helping to build prototypes, code the robot and make sure the robot didn't blow up.
 ## Meet the munchers!
 ### Leonardo Cubeddu
-I am from venezuela i speak spanish and english i worked on the code for the robot and had my hand in the making of "NoTeChoques" aside from that my last name is pronounced koo-BEH-doo so please pronounce it right 
+I worked on the code for the robot and had my hand in the making of "NoTeChoques" (our robot's nickname).Aside from that, my last name is pronounced koo-BEH-doo so please pronounce it right 
+*Born*: 2010, Venezuelan
 ### Ana Lozano
-
+My main job relies on the documentation and research for making the robot come to life, anything from checking rules thousands of times to testing the robot's parameters to make the coding expirience smoother for everyone else on the team.
+*Born*: 2010, Panamenian
 ***
 Things we have to put:
 - Photos and media of the robot and the team, include videos of robot driving
