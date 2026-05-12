@@ -1,4 +1,4 @@
-# WRO2026-FE-ChompersMunchers
+<img width="1200" height="1600" alt="image" src="https://github.com/user-attachments/assets/7f62e618-e446-4bc2-b18d-bf4d9c2fd016" /># WRO2026-FE-ChompersMunchers
 /TEAMDESCRIPTION/
 
 ## Table of content
@@ -18,7 +18,8 @@ Things we have to put:
 ## Robot overview
 For our robot, we were aiming for a beginner friendly yet functional design, which is why we used the help of **Pybricks** and **Lego SPIKE** to develop our machine. This was done because, despite the fact we wanted to learn as much as possible, topics like wiring and electronics requiered a skill level we would need more time to reach than we had and we wanted to have the machine working in its best form for the time of the competition as much as we wanted to learn from making it.
 
-// Photo of NOTECHOQUES /// 
+![Uploading image.png…](Robot's side view)
+
 
 ### Mechanical Systems
 
