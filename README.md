@@ -1,7 +1,7 @@
 # WRO2026-FE-ChompersMunchers
-/TEAMDESCRIPTION/
+Chompers Munchers is a Panama based team comprised of three students which aim to learn the most of what is possible with our skillsets and aim to learn even more along the way, we are participating in the "WRO FE 2026: Self Driving Cars" challenge. In this documentation you'll be able to find everything about the team and robot, from details on each members to the creations and composition of Notechoques.
 
-## Table of content
+## Overview of the repository
 /CONTENTS LINKED HERE/
 We can't exactly label anyone with a specific role, as we kind of had every role at once, with everyone helping to build prototypes, code the robot and make sure the robot didn't blow up.
 ## Meet the munchers!
