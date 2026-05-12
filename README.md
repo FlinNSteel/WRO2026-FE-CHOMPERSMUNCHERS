@@ -26,3 +26,15 @@ For our robot, we were aiming for a beginner friendly yet functional design, whi
 ### Mechanical Systems
 
 The robot's steering system was made with mechanical differential drive, with gears ensuring maximum customizability of the robot's speed for the wheels, the steering was done with an acherman directional in the front of the vehicle, with the back being hooked up to a rotatory motor which allows it to quickly adjust the speed of the robot, at least enough for it to do everything we need it to.
+
+### Robot Dimensions
+
+Height: 10CM
+Width: 15CM
+Lenght: 22CM
+Wheel-Diametre: 56MM
+
+### Robot Materials
+
+| (Photo) | Material desc |
+| (Photo2) | Material desc 2 | 
