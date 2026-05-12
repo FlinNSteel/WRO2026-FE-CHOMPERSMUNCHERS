@@ -6,7 +6,7 @@
 We can't exactly label anyone with a specific role, as we kind of had every role at once, with everyone helping to build prototypes, code the robot and make sure the robot didn't blow up.
 ## Meet the munchers!
 ### Leonardo Cubeddu
-
+I am from venezuela i speak spanish and english i worked on the code for the robot and had my hand in the making of "NoTeChoques" aside from that my last name is pronounced koo-BEH-doo so please pronounce it right 
 ### Ana Lozano
 
 ***
