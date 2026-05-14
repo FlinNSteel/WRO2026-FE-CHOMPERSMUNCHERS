@@ -60,7 +60,7 @@ Wheel-Diametre: 56MM
 
 | Materials | Material Descriptions |
 |--------|--------|
-|<img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/Media/Lego_Spike_Wheel.jpg?raw=true" width:200 lenght:200> |Lego Technic Spike wheel|
-|<img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/Media/Ultra_Sonic_Sensor.jpg?raw=true" width:200 lenght:200>|Lego Technic Spike Prime ultrasonic sensor| 
-|<img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/Media/Power_Hub.jpg?raw=true" width:200 lenght:200> |Lego Spike Prime Large Hub|
-|<img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/Media/Rotatory_Motor.jpg?raw=true" width:200 lenght:200> |Lego Spike Prime big angular motor|
+|<img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/Media/Lego_Spike_Wheel.jpg?raw=true" width:50 lenght:50> |Lego Technic Spike wheel|
+|<img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/Media/Ultra_Sonic_Sensor.jpg?raw=true" width:50 lenght:50>|Lego Technic Spike Prime ultrasonic sensor| 
+|<img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/Media/Power_Hub.jpg?raw=true" width:50 lenght:50> |Lego Spike Prime Large Hub|
+|<img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/Media/Rotatory_Motor.jpg?raw=true" width:50 lenght:50> |Lego Spike Prime big angular motor|
