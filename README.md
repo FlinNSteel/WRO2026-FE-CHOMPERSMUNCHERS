@@ -2,12 +2,18 @@
 Chompers Munchers is a Panama based team comprised of three students which aim to learn the most of what is possible with our skillsets and aim to learn even more along the way, we are participating in the "WRO FE 2026: Self Driving Cars" challenge. In this documentation you'll be able to find everything about the team and robot, from details on each members to the creations and composition of Notechoques.
 
 ## Overview of the repository
-[1. Meet the Munchers!](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS#meet-the-munchers)
-[2. Robot Overview](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS#robot-overview)
+[**1. Meet the Munchers!**](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS#meet-the-munchers)
+
+[**2. Robot Overview**](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS#robot-overview)
+
 [2.1 Mechanical Systems](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS#mechanical-systems)
-[2.2 Command Based Parking]()
-[3. Robot Structure]()
+
+[2.2 Command Based Parking](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS#command-based-parking)
+
+[**3. Robot Structure**](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS#robot-structure)
+
 [3.1 Robot Dimensions](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS#robot-dimensions)
+
 [3.2 Robot Materials](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS#robot-materials)
 
 ## Meet the munchers!
