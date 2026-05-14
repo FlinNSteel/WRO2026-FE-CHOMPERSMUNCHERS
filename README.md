@@ -60,5 +60,7 @@ Wheel-Diametre: 56MM
 
 | Materials | Material Descriptions |
 |--------|--------|
-|(Photo)|Material desc|
-|(Photo2)|Material desc 2| 
+|(Photo)|Lego Technic Spike wheel|
+|(Photo2)|Lego Technic Spike Prime ultrasonic sensor| 
+| (photo3) |Lego Spike Prime Large Hub|
+| (photo4) |Lego Spike Prime big angular motor|
