@@ -51,10 +51,14 @@ We based our parking on the *pybricks* system by making a series of commands for
 
 ### Robot Dimensions 📏
 
-Height: 10CM
-Width: 15CM
-Lenght: 22CM
-Wheel-Diametre: 56MM
+**Height**: 10CM
+
+**Width**: 15CM
+
+**Lenght**: 22CM
+
+**Wheel-Diametre**: 56MM
+
 
 ### Robot Materials
 
