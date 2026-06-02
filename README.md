@@ -46,7 +46,7 @@ The robot's steering system was made with mechanical differential drive, with ge
 ### Command based parking
 <img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/other/Parking.gif" alt="parking" width="50%" height="50%">
 
-- We based our parking on the *pybricks* system by making a series of commands for the basic actions of **turning** and **moving**, with variables set to control the turn angle, intensity of the movement and distance covered.
+- We based our parking on the *pybricks* system by making a series of commands for the basic actions of **steering** and **moving**, with variables set to control the turn angle, intensity of the movement and distance covered.
 
 - We is use the sensor to detect the distance in the two side (left,right) when it detects which one is the farthest it will activate one of the two codes
   
