@@ -1,0 +1,247 @@
+from pybricks.hubs import PrimeHub
+from pybricks.pupdevices import Motor, UltrasonicSensor
+from pybricks.parameters import Port, Direction, Button
+from pybricks.tools import wait, StopWatch
+
+# --- INICIALIZACIÓN DE HARDWARE ---
+hub = PrimeHub()
+
+# Set up all devices.
+sensor_ad = UltrasonicSensor(Port.F)
+drive = Motor(Port.B, Direction.COUNTERCLOCKWISE)
+steering = Motor(Port.A, Direction.CLOCKWISE)
+
+# Variables
+velocidad_base = 500
+limit_der = -89     # limite de giro derecha
+angulo_steering_recto = 10
+limit_izq = 66      # limite de giro izquierda
+transformacion = 0
+diferencia = 0      # Diferencia entre la lectura de lsensor izquierdo y el derecho
+
+num_prueba = 0  # variable temporal para poder ejecutar el codigo de avanzar y 
+                # girar un par contado de veces
+
+# Sensores
+sensor_izq = UltrasonicSensor(Port.D)
+sensor_der = UltrasonicSensor(Port.C)
+
+# Relojes
+reloj = StopWatch()
+reloj_sensores = StopWatch() # NUEVO: Reloj exclusivo para el muestreo
+
+# --- PARÁMETROS DE CONFIGURACIÓN ---
+VELOCIDAD_AVANCE = 800
+rumbo_objetivo = 0     
+
+
+# Ganancias del control de rumbo (Ajustables)
+KP_YAW = 3
+KD_YAW = 1
+error_yaw = 0
+
+# Valores de componente integral
+KI_YAW = 0.01
+dt = 0
+previous_error = 0
+error_integral = 0
+
+
+# Límites físicos estrictos del motor para evitar sobreesfuerzos
+LIMITE_IZQ = -47
+LIMITE_DER = 67
+LIMITE_ROT = 1000
+LIMITE_AD = 500
+LIMITE_FR = 530 # Cantidad de cm que necesita el robot (Censor de frente) a pared para girar
+
+
+# --- NUEVOS PARÁMETROS PARA LECTURA NO BLOQUEANTE ---
+N_MUESTRAS = 9             # Usar número impar es mejor para la mediana
+INTERVALO_MUESTREO = 100    # Milisegundos entre cada lectura de sensor
+lecturas_izq = []          # Búfer para guardar el historial
+lecturas_der = []
+
+def Mover_por_mm(distancia_en_mm, velocidad_base = 500):
+    global transformacion
+    transformacion = (distancia_en_mm * 360) / (62*3.1416)
+    drive.run_angle(velocidad_base, transformacion)
+
+def iniciar_robot():
+    print("--- CONTROL DESDE 0: AVANCE RECTO ---")
+    steering.reset_angle(0)
+    hub.imu.reset_heading(0)
+    drive.run(VELOCIDAD_AVANCE)
+
+def girar(diferencia, rumbo): # No gira a los 2 lados, womp womp
+    drive.stop()
+    direccion_giro = 0
+
+    angulo_giro = 45
+    if (diferencia > 0): 
+        print('giro a la izquierda')
+        steering.run_target(500, -angulo_giro)
+
+    else:
+        print('giro a la derecha')
+        steering.run_target(500, angulo_giro)
+    
+    
+
+    yaw_actual = hub.imu.heading()
+    
+    while abs(yaw_actual) < 75 + abs(rumbo):
+        yaw_actual = hub.imu.heading()
+        drive.run(800)
+
+    
+    drive.stop()
+
+
+    if (diferencia > 0): 
+        print('recto a la izquierda')
+        steering.run_target(900, angulo_steering_recto)
+    else:
+        print('recto a la derecha')
+        steering.run_target(900, -4.5)
+
+
+
+    Mover_por_mm(500)
+    direccion_giro = 0
+    
+    # IMPORTANTE: Al terminar de girar, vaciamos el búfer histórico 
+    # para que no tome decisiones basadas en lo que vio antes del giro.
+    lecturas_izq.clear()
+    lecturas_der.clear()
+    reloj_sensores.reset()
+
+    # Reanudamos el avance tras la pausa
+#    iniciar_robot()
+
+def mantener_linea_recta(rumbo):
+    global error_yaw
+    global error_integral
+    drive.run(VELOCIDAD_AVANCE)
+
+    previous_error = error_yaw  #Eo
+
+    # 1. Leer variables del giroscopio interno del Hub
+    yaw_actual = hub.imu.heading()
+    error_rate = hub.imu.angular_velocity()[2] # Velocidad de rotación en el eje Z/Va
+
+
+    # 2. Calcular error de rumbo (Cuánto nos hemos desviado del 0)
+    error_yaw = rumbo - yaw_actual # E: error
+
+    # dt = (E-Eo)/Va
+
+    dt = (error_yaw  - previous_error)/error_rate
+
+    error_integral += error_yaw * dt
+    
+    # 3. Calcular los grados que debe moverse el motor de dirección (Control PD)
+    #angulo_motor = (KP_YAW * error_yaw) - (KD_YAW * error_rate)
+    
+    angulo_motor = KP_YAW * error_yaw + KD_YAW * error_rate + KI_YAW*error_integral
+
+    # =========================================================================
+    # PRUEBA DE INVERSIÓN CRÍTICA:
+    # Si notas que el robot se desvía un poco y en lugar de corregir gira MÁS
+    # hacia ese error, quita el símbolo '#' de la línea de abajo para invertirlo:
+    # angulo_motor = -angulo_motor
+    # =========================================================================
+    
+    # 4. Filtrar el ángulo con límites seguros para que el motor no sufra
+    angulo_seguro = angulo_motor
+    if angulo_seguro > LIMITE_DER: angulo_seguro = LIMITE_DER
+    if angulo_seguro < LIMITE_IZQ: angulo_seguro = LIMITE_IZQ
+    
+    # 5. Ordenar el movimiento al motor de dirección
+    steering.track_target(angulo_seguro)
+    
+    # Telemetría en consola para diagnóstico rápido
+    
+    if reloj.time() % 200 < 20:
+        print('yaw:', round(yaw_actual,2),'e:', round(error_yaw,2), 'dt:', round(dt,2), 'Va',error_rate,
+              'ang:', angulo_motor, 'ang_s', angulo_seguro, 'ang_R',steering.angle())
+   
+
+
+
+
+# --- BUCLE PRINCIPAL ---
+iniciar_robot()
+reloj_sensores.reset()
+
+MAX_VUELTA = 3
+Secciones = MAX_VUELTA * 4 
+seccion_actual = 1
+
+try:
+    while num_prueba <= Secciones:
+        print("DistR:", diferencia, 'Obj:', rumbo_objetivo, 'SecA:', seccion_actual)
+    
+        # 1. Chequeo de seguridad (Botón)
+        if Button.CENTER in hub.buttons.pressed():
+            break
+
+        # 2. CONTROL CONTINUO DEL MOTOR
+        # Esto ocurre en CADA ciclo (casi instantáneo), manteniendo el PD perfecto.
+        mantener_linea_recta(rumbo_objetivo)
+
+        # 3. LECTURA DE SENSORES CON TEMPORIZADOR (NO BLOQUEANTE)
+        if reloj_sensores.time() >= INTERVALO_MUESTREO:
+            reloj_sensores.reset() # Reiniciamos el reloj para la próxima lectura
+
+            dist_izq = sensor_izq.distance()
+            dist_der = sensor_der.distance()
+
+            # Añadimos la nueva lectura a nuestras listas (búfer)
+            lecturas_izq.append(dist_izq)
+            lecturas_der.append(dist_der)
+
+            # Si excedemos el tamaño del historial, borramos la lectura más vieja
+            if len(lecturas_izq) > N_MUESTRAS:
+                lecturas_izq.pop(0)
+                lecturas_der.pop(0)
+
+            # 4. EVALUACIÓN CON FILTRO DE MEDIANA (Ignora atípicos)
+            # Solo evaluamos si nuestro búfer está lleno
+            if len(lecturas_izq) == N_MUESTRAS:
+                
+                # Ordenar las listas y tomar el valor central (Mediana)
+                # Esto es inmune a picos repentinos de 2000mm o 0mm
+                mediana_izq = sorted(lecturas_izq)[N_MUESTRAS // 2]
+                mediana_der = sorted(lecturas_der)[N_MUESTRAS // 2]
+                
+                diferencia = mediana_izq - mediana_der
+        
+
+        if abs(diferencia) >= LIMITE_ROT and seccion_actual <= Secciones:
+            print("Distancia atípica ignorada. Mediana real:", diferencia, "-> PARAR Y GIRAR")
+
+
+            girar(diferencia, rumbo_objetivo)
+            
+            diferencia = 0
+            num_prueba += 1
+            rumbo_objetivo += 90
+            dist_izq = 0
+            dist_der = 0
+            seccion_actual+=1
+
+        if seccion_actual > Secciones:
+            break
+
+
+        # Pequeña pausa de sistema para no asfixiar la CPU del Hub
+        wait(5)
+    
+except Exception as e:
+    print("Error en ejecución:", e)
+
+finally:
+    # Apagado total de seguridad
+    drive.stop()
+    steering.stop()
+    print("--- ROBOT DETENIDO ---")
