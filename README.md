@@ -69,7 +69,8 @@ The robot's steering system was made with mechanical differential drive, with ge
 
 | Materials | Material Descriptions |
 |--------|--------|
-|<img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/Media/Lego_Spike_Wheel.jpg?raw=true" width=50 lenght=50> |Lego Technic Spike wheel|
-|<img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/Media/Ultra_Sonic_Sensor.jpg?raw=true" width=50 lenght=50>|Lego Technic Spike Prime ultrasonic sensor| 
-|<img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/Media/Power_Hub.jpg?raw=true" width=50 lenght=50> |Lego Spike Prime Large Hub|
-|<img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/Media/Rotatory_Motor.jpg?raw=true" width=50 lenght=50> |Lego Spike Prime big angular motor|
+|(photo) |Lego Technic Spike wheel|
+|(photo)|Lego Technic Spike Prime ultrasonic sensor| 
+|(photo) |Lego Spike Prime Large Hub|
+|(photo) |Lego Spike Prime big angular motor|
+(rember lenght and width are both 50)
