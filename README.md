@@ -52,6 +52,14 @@ The robot's steering system was made with mechanical differential drive, with ge
   
 - If right is the farthest it will go and exit right if left is the farthest then it will exit left
 
+### Open Challenge Core loop
+(EXPLAIN HOW THE MAIN LOOP HAPPENS)
+#### PID
+
+#### Identifying turns
+
+#### Direction recognition
+
 ## Robot structure
 
 ### Robot Dimensions 📏
