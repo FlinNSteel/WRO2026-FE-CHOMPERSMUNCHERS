@@ -53,11 +53,66 @@ The robot's steering system was made with mechanical differential drive, with ge
 - If right is the farthest it will go and exit right if left is the farthest then it will exit left
 
 ### Open Challenge Core loop
-(EXPLAIN HOW THE MAIN LOOP HAPPENS)
+Our core loop consist of a relatively simple but effective "mantener_linea_recta" function, which guides the robot to stay as aligned to its initial position which is measured by our gyro, with it reseting to 0 at the start of the round and then trying to maintain itself as close to 0 with the help of our PID.
 #### PID
+Our PID is what keeps the robot stable, which we integrated into the code's "mantener_linea_recta" function with a series of formulas to calculate how far the robot deviated and how big the oscilation has to be to ensure the robot stays as stable as possible.
 
+>     # 1. Leer variables del giroscopio interno del Hub
+    yaw_actual = hub.imu.heading()
+    error_rate = hub.imu.angular_velocity()[2] # Velocidad de rotación en el eje Z/Va
+
+```
+    # 2. Calcular error de rumbo (Cuánto nos hemos desviado del 0)
+    error_yaw = RUMBO_OBJETIVO - yaw_actual # E: error
+
+    # dt = (E-Eo)/Va
+
+    dt = (error_yaw  - previous_error)/error_rate
+
+    error_integral += error_yaw * dt
+```
+In here, we acquired the values of the current yaw and the error-rate. These values are then run through to find the error integral, or how much error is happening.
+```
+    angulo_motor = KP_YAW * error_yaw + KD_YAW * error_rate + KI_YAW*error_integral
+```
+With this, we simply ran that value through our PID variables (which we obtained through rigorous testing) to have it determine how much does the steering motor have to turn to be able to correct the flaw.
 #### Identifying turns
+In simple terms, we have the lateral motors constantly running and set one of them to - and the other to +, causing a subtraction to happen, this is our **difference**. When this difference exceeds the limit we set, it will automatically go into "girar" or "turn" mode, where it will turn the set angle, depending on if the difference is above or below 0 to determine the direction.
 
+```
+def girar(diferencia):
+
+    if (diferencia > 0):
+        drive.stop()
+        # giro esta calibrado, horray!
+        steering.run_target(500, -32)
+
+        yaw_actual = hub.imu.heading()
+        
+        while abs(yaw_actual) < 88:
+            yaw_actual = hub.imu.heading()
+            drive.run(800)
+        
+        drive.stop()
+        steering.run_target(900, angulo_steering_recto)
+        Mover_por_mm(100)
+    else:
+        drive.stop()
+        # giro esta calibrado, horray!
+        yaw_actual = hub.imu.heading()
+        steering.run_target(500, 32)
+        
+        while abs(yaw_actual) < 88:
+            yaw_actual = hub.imu.heading()
+            drive.run(800)
+        
+        drive.stop()
+        steering.run_target(900, angulo_steering_recto)
+        Mover_por_mm(100)
+    return
+```
+
+However, to ensure that this mechanism is not accidentally triggered by the sensors (as they tend to be unreliable at times), a timer got set which works as a cooldown of sorts, only allowing turns to happen after a certain time frame has passed, if any turn related to the sensor difference values is detected beforehand, it will be blocked.
 #### Direction recognition
 
 ## Robot structure
