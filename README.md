@@ -113,7 +113,6 @@ def girar(diferencia):
 ```
 
 However, to ensure that this mechanism is not accidentally triggered by the sensors (as they tend to be unreliable at times), a timer got set which works as a cooldown of sorts, only allowing turns to happen after a certain time frame has passed, if any turn related to the sensor difference values is detected beforehand, it will be blocked.
-#### Direction recognition
 
 ## Robot structure
 
