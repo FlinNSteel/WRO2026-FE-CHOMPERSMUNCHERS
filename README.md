@@ -24,6 +24,9 @@ I worked on the code for the robot and had my hand in the making of "NoTeChoques
 ### Ana Lozano
 My main job relies on the documentation and research for making the robot come to life, anything from checking rules thousands of times to testing the robot's parameters to make the coding expirience smoother for everyone else on the team.
 *Born*: 2010, Panamenian
+### Verónica Perozo 
+I worked on a little bit of everything, making sure everything is functioning as it should, also, I love glitter and sparkles.
+*Born*: 2011, Venezuelan
 ### Dwight Sutherland
 Dwight is our mentor, he guides us along the way laying the basics for everything we do and making sure we can make the most out of what we have.
 *Born*: 2001, Panamenian
