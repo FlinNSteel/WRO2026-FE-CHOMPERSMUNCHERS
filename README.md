@@ -47,6 +47,8 @@ Dwight is our mentor, he guides us along the way laying the basics for everythin
 ## Robot overview ⚙️
 For our robot, we were aiming for a beginner friendly yet functional design, which is why we used the help of **Pybricks** and **Lego SPIKE** to develop our machine. This was done because, despite the fact we wanted to learn as much as possible, topics like wiring and electronics requiered a skill level we would need more time to reach than we had and we wanted to have the machine working in its best form for the time of the competition as much as we wanted to learn from making it.
 
+Our main mission with this robot was not to make a jack of all trades, but instead of a master of one; Focusing on trying to perfect our core loop for the open challenge rather than trying to branch out to every single possible scenario.
+
 <img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/v-photos/right-view.jpg?raw=true" width="50%" height="50%">
 
 ## Mechanical Systems 🛠️
@@ -72,12 +74,21 @@ This ~3:1 reduction between gears cascading downwards towards the motor (from la
       
 ## Software design and strategy 💻
 
+### General intel
+
 - **Programming language:** Pybricks micropython for rapid development and testing
 - **Development interphase:** Bluetooth connection from the computer using the program to lego SPIKE hub
 - **Libraries used:** Pybricks base library
-### loading up the code
+
+### Loading up the code
 
 To access the code, the .py archive is opened inside of the pybricks website with the "code with python" option, fully replacing the templace since the libraries that come included with the software are already included inside of the code. It is reccomended this device being used has an easy acess to a good bluetooth connection as it is critical to test the code, for testing changes a "copy" system was used where various copies of the codes were made for every major change and tagged on the documentation.
+
+### Our main challenges
+
+- **Limited hardware:** Probably the biggest tradeoff of using Lego Spike is the quality of the censors, we could not constantly rely on tasks where too many factors would be required to be done at once as it was very likely that at least one of the values would fail as our censors had a lot of noise and instead rely on a "better safe than sorry" strategy that prioritized minimizing the rate of error as much as possible by applying failsafe mechanisms.
+- **Squeezed Timeframe:** Because of the meetings being mainly hosted in the afterschool with very little room to replicate a work setup at home (as buses are not usually the happiest about bringing a giant mat for a 1 hour ride stuffed with kids), time was mostly limited to once a week but thankfully got stretched out to three smaller classes along with the obligatory one at the end of the week previously established, that along with our limited expirience made organization key to get anything done with the time frame given.
+- **Software power:** As the pybricks system was made to run on *micropython*, some features like external libraries or motors were completely out of sight for most of the competition, which made certain tasks that'd usually take a very little amount of time become insanely time consuming from having them be done from scratch instead of with an external library to facilitate the process beside pybrick's main library.
 
 ### Command based parking
 
@@ -90,6 +101,20 @@ To access the code, the .py archive is opened inside of the pybricks website wit
 - If right is the farthest it will go and exit right if left is the farthest then it will exit left
 
 ### Open Challenge Core loop
+
+***
+### Command reference table
+
+Since most of the code was mainly written with spanish terms as to facilitate the members of the team to be able to write it, we have provided a simplifided list of common terms or functions with their description.
+
+| Function Name | Function description |
+| --- | --- |
+| `mover-por-mm` | Used for distance specific movements (such as those for paralell parking and the end of laps) |
+| `mantener-linea-recta` | the main function to be executed between any section, activates the PID and ensures the robot stays aligned |
+| `giro-ajuste` | Smaller turns during sections which happen to avoid sticking too close to a wall |
+| `giro` | Bigger turns between sections to transition from one to the next |
+| `LIMITE-ROT` | The maximum accepted difference between distances read by censores before the system checks to see if it can do a big turn |
+| `robot-state` | The robot's definitive direction (set in the first turn) to do all the big turns between sections, any other kind of turn will not be affected |
 
 ### Main loop flow chart ➿
 
