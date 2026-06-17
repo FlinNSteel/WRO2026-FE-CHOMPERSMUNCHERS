@@ -2,27 +2,27 @@
 Chompers Munchers is a Panama based team comprised of three students which aim to learn the most of what is possible with our skillsets and aim to learn even more along the way, we are participating in the "WRO FE 2026: Self Driving Cars" challenge. In this documentation you'll be able to find everything about the team and robot, from details on each members to the creations and composition of Notechoques.
 
 ## Overview of the repository 📋
-[**1. Meet the Munchers!**](#meet-the-munchers!-🙌)
+- [**1. Meet the Munchers!**](#meet-the-munchers!-🙌)
 
-[**2. Robot Overview**](robot-overview-⚙️)
+- [**2. Robot Overview**](robot-overview-⚙️)
 
-   [2.1 Mechanical Systems](mechanical-systems-🛠️)
+   - [2.1 Mechanical Systems](mechanical-systems-🛠️)
 
-      2.1.1 Why lego?
+      - 2.1.1 Why lego?
 
-      2.1.2 Basic structure and framing
+      - 2.1.2 Basic structure and framing
 
-      2.1.3 Ackermann Steering
+      - 2.1.3 Ackermann Steering
 
-   [2.2 Power Management](power-management-⚡)
+   - [2.2 Power Management](power-management-⚡)
 
-   [2.3 Software Design and strategy](software-design-and-strategy-💻)
+   - [2.3 Software Design and strategy](software-design-and-strategy-💻)
 
-[**3. Robot Structure**](robot-structure-📐)
+- [**3. Robot Structure**](robot-structure-📐)
 
-   [3.1 Robot Dimensions](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS#robot-dimensions)
+   - [3.1 Robot Dimensions](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS#robot-dimensions)
 
-   [3.2 Robot Materials](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS#robot-materials)
+   - [3.2 Robot Materials](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS#robot-materials)
 
 ## Meet the munchers! 🙌
 
