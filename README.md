@@ -34,9 +34,9 @@ Dwight is our mentor, he guides us along the way laying the basics for everythin
 ## Robot overview ⚙️
 For our robot, we were aiming for a beginner friendly yet functional design, which is why we used the help of **Pybricks** and **Lego SPIKE** to develop our machine. This was done because, despite the fact we wanted to learn as much as possible, topics like wiring and electronics requiered a skill level we would need more time to reach than we had and we wanted to have the machine working in its best form for the time of the competition as much as we wanted to learn from making it.
 
-<img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/v-photos/right-view.jpg?raw=true" width="10%" height="10%">
+<img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/v-photos/right-view.jpg?raw=true" width="50%" height="50%">
 
-## Mechanical Systems 
+## Mechanical Systems 🛠️
 
 ### Why lego?
 As an up and coming team, there was bound to be a lot of trial and error with basic concepts which would mean lots of prototyping on parts that seemed "simple" or "basic". Which is why the lego "Spike" kit was ideal for us, with lego providing a solid toolset with all the basic materials needed for the robot along with the proper flexibility to commit any changes needed on the fly, we are planning in the future to pivot towards more professional hardware such as switching out the lego hub for a raspberry or audino, however lego ended up being the best option for the time being since most of the team members had little to no expirience with electronics, making this is a perfect opportunity to ensure a decent amount of customizability without overwhelming any of the members with details like learning breadboards or soddering.
@@ -52,6 +52,11 @@ As our robot has limited power to use with the wheel, ackermann sterring permitt
 
 <img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/Other/Ackermann-steering-sketch.png?raw=true">
 
+This ~3:1 reduction between gears cascading downwards towards the motor (from largest to smallest) allowed for a lot less work to be needed from the motor and so a much smoother and quicker robot.
+
+<img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/other/guided-back-view.png?raw=true" width="50%" height="50%">
+      *Guided back view of the robot, the gears are right behind the "drive motor" area".
+
 ### Command based parking
 <img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/other/Parking.gif" alt="parking" width="50%" height="50%">
 
@@ -62,68 +67,51 @@ As our robot has limited power to use with the wheel, ackermann sterring permitt
 - If right is the farthest it will go and exit right if left is the farthest then it will exit left
 
 ### Open Challenge Core loop
+
+### Main loop flow chart ➿
+      * Original file in [other's](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/tree/main/other) tab *
+<img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/other/main-loop-chart.png?raw=true" width="50%" height="50%">
+
 Our core loop consist of a relatively simple but effective "mantener_linea_recta" function, which guides the robot to stay as aligned to its initial position which is measured by our gyro, with it reseting to 0 at the start of the round and then trying to maintain itself as close to 0 with the help of our PID.
 #### PID
 Our PID is what keeps the robot stable, which we integrated into the code's "mantener_linea_recta" function with a series of formulas to calculate how far the robot deviated and how big the oscilation has to be to ensure the robot stays as stable as possible.
 
->     # 1. Leer variables del giroscopio interno del Hub
-    yaw_actual = hub.imu.heading()
-    error_rate = hub.imu.angular_velocity()[2] # Velocidad de rotación en el eje Z/Va
-
 ```
-    # 2. Calcular error de rumbo (Cuánto nos hemos desviado del 0)
-    error_yaw = RUMBO_OBJETIVO - yaw_actual # E: error
-
-    # dt = (E-Eo)/Va
-
-    dt = (error_yaw  - previous_error)/error_rate
-
-    error_integral += error_yaw * dt
-```
-In here, we acquired the values of the current yaw and the error-rate. These values are then run through to find the error integral, or how much error is happening.
-```
-    angulo_motor = KP_YAW * error_yaw + KD_YAW * error_rate + KI_YAW*error_integral
+pseudocodeeeee
 ```
 With this, we simply ran that value through our PID variables (which we obtained through rigorous testing) to have it determine how much does the steering motor have to turn to be able to correct the flaw.
-#### Identifying turns
-In simple terms, we have the lateral motors constantly running and set one of them to - and the other to +, causing a subtraction to happen, this is our **difference**. When this difference exceeds the limit we set, it will automatically go into "girar" or "turn" mode, where it will turn the set angle, depending on if the difference is above or below 0 to determine the direction.
+### Turning
+
+The first turn is used as a "template" of sorts for every other turn between two sections to happen through any lap, setting a "robot state" which stays unaltered for the rest of the lap's duration as to avoid having the robot accidentally turn the opposite way, this was done as a measure to force the robot to minimize the amount of mistakes it could make and having the robot become slightly independent from the sensors for the rest of the laps as they're relatively prone to give errors in the form of jaggies which could affect performance.
 
 ```
-def girar(diferencia):
 
-    if (diferencia > 0):
-        drive.stop()
-        # giro esta calibrado, horray!
-        steering.run_target(500, -32)
+    if actual-section == 1:
+        if diferencia > 0:
+         robot state = turn left
+        else:
+         robot state = turn right
+   else
 
-        yaw_actual = hub.imu.heading()
-        
-        while abs(yaw_actual) < 88:
-            yaw_actual = hub.imu.heading()
-            drive.run(800)
-        
-        drive.stop()
-        steering.run_target(900, angulo_steering_recto)
-        Mover_por_mm(100)
-    else:
-        drive.stop()
-        # giro esta calibrado, horray!
-        yaw_actual = hub.imu.heading()
-        steering.run_target(500, 32)
-        
-        while abs(yaw_actual) < 88:
-            yaw_actual = hub.imu.heading()
-            drive.run(800)
-        
-        drive.stop()
-        steering.run_target(900, angulo_steering_recto)
-        Mover_por_mm(100)
-    return
 ```
 
-However, to ensure that this mechanism is not accidentally triggered by the sensors (as they tend to be unreliable at times), a timer got set which works as a cooldown of sorts, only allowing turns to happen after a certain time frame has passed, if any turn related to the sensor difference values is detected beforehand, it will be blocked.
+When the first turn is finished, a timer is started to be taken into account which measures ~3.5 seconds (3500 milliseconds) and completely blocks any turns between two sections unless the timer is finished, with this being used to further ensure no jaggies affect robot performance or avoid any false positives in the odd case it accidentally reads a big difference while doing tasks like adjusting during a section. When the timer is over and a big difference is detected yet again, the robot will shift its gyro objective, adding or subtracting 90 depending on the "robot state" established on the first turn.
 
-## Robot structure
+
+```
+
+if rotation-timer < 3500:
+   if difference > 1000:
+      if robot state > 0:
+         add 90 to objective
+         go to objective
+      else
+         add -90 to objective
+         go to objective
+else
+
+```
+
 
 ### Robot Dimensions 📏
 
