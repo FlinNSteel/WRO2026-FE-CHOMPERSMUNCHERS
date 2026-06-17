@@ -4,9 +4,9 @@ Chompers Munchers is a Panama based team comprised of three students which aim t
 ## Overview of the repository 📋
 - [**1. Meet the Munchers!**](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/README.md#meet-the-munchers-)
 
-- [**2. Robot Overview**](robot-overview-⚙️)
+- [**2. Robot Overview**](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/README.md#robot-overview-%EF%B8%8F)
 
-   - [2.1 Mechanical Systems](mechanical-systems-🛠️)
+   - [2.1 Mechanical Systems](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS#mechanical-systems-%EF%B8%8F)
 
       - 2.1.1 Why lego?
 
@@ -14,15 +14,15 @@ Chompers Munchers is a Panama based team comprised of three students which aim t
 
       - 2.1.3 Ackermann Steering
 
-   - [2.2 Power Management](power-management-⚡)
+   - [2.2 Power Management](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS#power-management-)
 
-   - [2.3 Software Design and strategy](software-design-and-strategy-💻)
+   - [2.3 Software Design and strategy](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS#software-design-and-strategy-)
 
-- [**3. Robot Structure**](robot-structure-📐)
+- [**3. Robot Structure**](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS#robot-structure-)
 
-   - [3.1 Robot Dimensions](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS#robot-dimensions)
+   - [3.1 Robot Dimensions]
 
-   - [3.2 Robot Materials](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS#robot-materials)
+   - [3.2 Robot Materials]
 
 ## Meet the munchers! 🙌
 
