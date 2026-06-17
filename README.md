@@ -109,6 +109,8 @@ As our (sadly) least powerful but most used censors, distance censors are used a
 
 We have opted on Spike's ultrasonic censors for the time being as they were the best option available, despite their considerable amount of noise which is why they're usually paired up with something else in all of their functions to avoid sole reliance on them. As for their placement, the lateral censors are located in a vertical position as to keep it as close to the floor to avoid signals accidentally travelling too far and being detected as a false postive, which was specially important while testing the robot. As for the frontal one, it does opt for a horizontal position as it is very close to the front wheels and putting it any closer to the bottom of the robot could risk damage during steering and potential noise being caught from other motors to affect the motor's already subpar performance.
 
+<img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/other/guided-side-view.png?raw=true" width="50%" height="50%">
+
 #### Gyroscope
 
 The gyroscope, as it is one of the only pieces that does not need any direct contact with any other piece besides the hub is directly stored inside of the robot as to have it take as little space as possible, it is also around the center as to make all readings specially accurate as to take advantage of its extensive versatility. The gyro was also kept near that position for testing purposes, being one of the only sensors that didn't have any reason to move or be changed from position compared to everything else, so having it be slightly out of reach for the sake of making other pieces more accessible was a nice tradeoff.
@@ -116,6 +118,10 @@ The gyroscope, as it is one of the only pieces that does not need any direct con
 #### Encoders
 
 For our encoders, we chose to use the integrated encoders inside of the motors as they were reliable enough for the use and could be set up relatively quickly with some calculations to pass the degrees they were sent as to distance units that could be used to check how long the robot had been running for, which was specially useful for moments where precise movements had to be detected quickly, as the encoders were a lot faster as capturing those movements than the ultrasonic censors.
+
+(located on the back)
+
+<img src='https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/other/guided-back-view.png?raw=true' width="50%" height="50%">
 
 ## Software design and strategy 💻
 
