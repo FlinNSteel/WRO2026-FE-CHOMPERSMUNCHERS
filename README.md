@@ -72,9 +72,9 @@ This ~3:1 reduction between gears cascading downwards towards the motor (from la
       
 ## Software design and strategy 💻
 
-- Programming language: Pybricks micropython for rapid development and testing
-- Development interphase: Bluetooth connection from the computer using the program to lego SPIKE hub
-- 
+- **Programming language:** Pybricks micropython for rapid development and testing
+- **Development interphase:** Bluetooth connection from the computer using the program to lego SPIKE hub
+- **Libraries used:** Pybricks base library
 ### loading up the code
 
 To access the code, the .py archive is opened inside of the pybricks website with the "code with python" option, fully replacing the templace since the libraries that come included with the software are already included inside of the code. It is reccomended this device being used has an easy acess to a good bluetooth connection as it is critical to test the code, for testing changes a "copy" system was used where various copies of the codes were made for every major change and tagged on the documentation.
