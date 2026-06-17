@@ -42,7 +42,7 @@ For our robot, we were aiming for a beginner friendly yet functional design, whi
 As an up and coming team, there was bound to be a lot of trial and error with basic concepts which would mean lots of prototyping on parts that seemed "simple" or "basic". Which is why the lego "Spike" kit was ideal for us, with lego providing a solid toolset with all the basic materials needed for the robot along with the proper flexibility to commit any changes needed on the fly, we are planning in the future to pivot towards more professional hardware such as switching out the lego hub for a raspberry or audino, however lego ended up being the best option for the time being since most of the team members had little to no expirience with electronics, making this is a perfect opportunity to ensure a decent amount of customizability without overwhelming any of the members with details like learning breadboards or soddering.
 
 ### Basic Structure and framing
-We aimed to make the robot as lightweight as possible while still not compromising on stability, which would be crucial specially at higher speeds as the challenge went on and more optimizations were added. For this we connected a "main frame" of sorts to the bottom of a hub to act as an anchor for all the other parts of the robot, with side parts like the sensors being placed directly on the sides connected to technic beams as to make sure they did not interfere with any of the drive's business.
+We aimed to make the robot as lightweight as possible while still not compromising on stability, which would be crucial specially at higher speeds as the challenge went on and more optimizations were added. For this we connected a "main frame" of sorts to the bottom of a hub to act as an anchor for all the other parts of the robot, with side parts like the sensors being placed directly on the sides connected to technic beams as to make sure they did not interfere with any of the drive's business. The structure uses long beams, cross connectors, and double supports to reduce flexing when the robot turns or changes direction. This helps prevent the chassis from deforming under the approximate weight of 1.34 kg.
 
 We were not too worried on trying to make it so that our robot could hit a full 360 on rotations, as there were very little situations during the challenge where we saw that we would need an inmideate turn beyond 90 degrees, instead opting for an ackermann steering (more details below). This mainly happened as our drive motor and steering motor were relatively the same (as they were the type of motors provided by the kit), however with one having the angle repourposed to become a built in encoder of sorts which was especially helpful during segments like parking where maximum precision was needed, although we didn't try too hard to get a full specialized encoder made specifically for that purpose as it was not used enough for that to make too much of a difference.
 
@@ -56,7 +56,11 @@ This ~3:1 reduction between gears cascading downwards towards the motor (from la
 
 <img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/other/guided-back-view.png?raw=true" width="50%" height="50%">
       *Guided back view of the robot, the gears are right behind the "drive motor" area".
-
+## Software design and strategy 💻
+- Programming language: Pybricks micropython for rapid development and testing
+- Development interphase: Bluetooth connection from the computer using the program to lego SPIKE hub
+### loading up the code
+To access the code, the .py archive is opened inside of the pybricks website with the "code with python" option, fully replacing the templace since the libraries that come included with the software are already included inside of the code. It is reccomended this device being used has an easy acess to a good bluetooth connection as it is critical to test the code, for testing changes a "copy" system was used where various copies of the codes were made for every major change and tagged on the documentation.
 ### Command based parking
 <img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/other/Parking.gif" alt="parking" width="50%" height="50%">
 
@@ -69,7 +73,7 @@ This ~3:1 reduction between gears cascading downwards towards the motor (from la
 ### Open Challenge Core loop
 
 ### Main loop flow chart ➿
-      <p><i>Original file in [other's](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/tree/main/other) tab</i></p>
+      Original file in [other's](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/tree/main/other) tab
 <img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/other/main-loop-chart.png?raw=true" width="50%" height="50%">
 
 Our core loop consist of a relatively simple but effective "mantener_linea_recta" function, which guides the robot to stay as aligned to its initial position which is measured by our gyro, with it reseting to 0 at the start of the round and then trying to maintain itself as close to 0 with the help of our PID.
@@ -77,8 +81,17 @@ Our core loop consist of a relatively simple but effective "mantener_linea_recta
 Our PID is what keeps the robot stable, which we integrated into the code's "mantener_linea_recta" function with a series of formulas to calculate how far the robot deviated and how big the oscilation has to be to ensure the robot stays as stable as possible.
 
 ```
-pseudocodeeeee
+    if error_rate != 0:
+        dt = (error_yaw - pid_state["prev_error"]) / error_rate
+    else:
+        dt = 0.01  # Valor de fallback seguro
+
+    pid_state["integral"] += error_yaw * dt
+    pid_state["prev_error"] = error_yaw
+    
+    angulo_motor = (KP_YAW * error_yaw) + (KD_YAW * error_rate) + (KI_YAW * pid_state["integral"])
 ```
+
 With this, we simply ran that value through our PID variables (which we obtained through rigorous testing) to have it determine how much does the steering motor have to turn to be able to correct the flaw.
 ### Turning
 
