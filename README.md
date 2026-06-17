@@ -20,9 +20,9 @@ Chompers Munchers is a Panama based team comprised of three students which aim t
 
 - [**3. Robot Structure**](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS#robot-structure-)
 
-   - [3.1 Robot Dimensions]
+   - 3.1 Robot Dimensions
 
-   - [3.2 Robot Materials]
+   - 3.2 Robot Materials
 
 ## Meet the munchers! 🙌
 
