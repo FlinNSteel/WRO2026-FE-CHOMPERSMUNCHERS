@@ -14,9 +14,24 @@ Chompers Munchers is a Panama based team comprised of three students which aim t
 
       - 2.1.3 Ackermann Steering 🚗
 
-   - [2.2 Power Management ☀️](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS#power-management-)
+   - [2.2 Power Management and censors ☀️](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS#power-management-)
+ 
+        - 2.2.1 Battery 🔋
+        - 2.2.2 Censors 🔈
+             2.2.2.1 Distance Censors 📏
+             2.2.2.2 Gyroscope 🛞
+             2.2.2.3 Encoders 📏
 
    - [2.3 Software Design and strategy 📜](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS#software-design-and-strategy-)
+ 
+        - 2.3.1 General intel 📋
+        - 2.3.2 Loading the code 🎁
+        - 2.3.3 Main challenges 🔧
+        - 2.3.4 Command based parking 🅿️
+        - 2.3.5 Open Challenge core loop
+        - 2.3.6 PID
+        - 2.3.7 Turning
+
 
 - [**3. Robot Structure 📐**](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS#robot-structure-)
 
@@ -80,8 +95,28 @@ This ~3:1 reduction between gears cascading downwards towards the motor (from la
 <img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/other/guided-back-view.png?raw=true" width="50%" height="50%">
       *Guided back view of the robot, the gears are right behind the "drive motor" area".
 
-## Power management ⚡
-      
+## Power management and Censors ⚡
+
+### Battery
+Related to power, we mostly rely on the hub's power bank which we have attempted to keep on the top for the easiest access in case of any emergency where it is necessary to switch out the battery, as to do so with as little hassle as possible. 
+
+(PLACE POWER TABLE HERE, I'm sorry coach I promise it will appear at some point)
+### Censors
+
+#### Distance censors
+
+As our (sadly) least powerful but most used censors, distance censors are used all around the robot, with two on the sides for things like PID and detecting turns and a frontal one for tasks such as a measuring overall distance to the next section.
+
+We have opted on Spike's ultrasonic censors for the time being as they were the best option available, despite their considerable amount of noise which is why they're usually paired up with something else in all of their functions to avoid sole reliance on them. As for their placement, the lateral censors are located in a vertical position as to keep it as close to the floor to avoid signals accidentally travelling too far and being detected as a false postive, which was specially important while testing the robot. As for the frontal one, it does opt for a horizontal position as it is very close to the front wheels and putting it any closer to the bottom of the robot could risk damage during steering and potential noise being caught from other motors to affect the motor's already subpar performance.
+
+#### Gyroscope
+
+The gyroscope, as it is one of the only pieces that does not need any direct contact with any other piece besides the hub is directly stored inside of the robot as to have it take as little space as possible, it is also around the center as to make all readings specially accurate as to take advantage of its extensive versatility. The gyro was also kept near that position for testing purposes, being one of the only sensors that didn't have any reason to move or be changed from position compared to everything else, so having it be slightly out of reach for the sake of making other pieces more accessible was a nice tradeoff.
+
+#### Encoders
+
+For our encoders, we chose to use the integrated encoders inside of the motors as they were reliable enough for the use and could be set up relatively quickly with some calculations to pass the degrees they were sent as to distance units that could be used to check how long the robot had been running for, which was specially useful for moments where precise movements had to be detected quickly, as the encoders were a lot faster as capturing those movements than the ultrasonic censors.
+
 ## Software design and strategy 💻
 
 ### General intel
