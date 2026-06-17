@@ -17,34 +17,40 @@ Chompers Munchers is a Panama based team comprised of three students which aim t
    [3.2 Robot Materials](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS#robot-materials)
 
 ## Meet the munchers! 🙌
-We can't exactly label anyone with a specific role, as we kind of had every role at once, with everyone helping to build prototypes, code the robot and make sure the robot didn't blow up.
+Despite the fact that no one was stuck to a specific role, there were things some of us excelled at and as so did for most of our time.
 ### Leonardo Cubeddu
-I worked on the code for the robot and had my hand in the making of "NoTeChoques" (our robot's nickname).Aside from that, my last name is pronounced koo-BEH-doo so please pronounce it right 
+He was in charge of all things coding, making sure that our code was able to work reliably and nudging the little software details to ensure everything was right on track, besides that he also helped a lot with adjusting the robot and ensuring that we didn't wreck the robot doing tasks like replacing the battery.
 *Born*: 2010, Venezuelan
 ### Ana Lozano
-My main job relies on the documentation and research for making the robot come to life, anything from checking rules thousands of times to testing the robot's parameters to make the coding expirience smoother for everyone else on the team.
+She was mostly in charge of documentation, making every change be noted and ensuring that everyone was always up to date with what to do, may it be by looking up rules when needed or keeping a record of all changes done during each meeting.
 *Born*: 2010, Panamenian
 ### Verónica Perozo 
-I worked on a little bit of everything, making sure everything is functioning as it should, also, I love glitter and sparkles.
+She was in charge of everything mechanical, doing tweaks and adjustments may it be to the design of the robot to optimize for speed or checking around things like PID to ensure that the robot was always running smoothly and having the best performance it could have.
 *Born*: 2011, Venezuelan
 ### Dwight Sutherland
-Dwight is our mentor, he guides us along the way laying the basics for everything we do and making sure we can make the most out of what we have.
+Dwight is our mentor, he guides us along the way laying the basics for everything we do and making sure we can make the most out of what we have, checking our work and correcting us when needed to ensure that we are on the right path.
 *Born*: 2001, Panamenian
-***
-Things we have to put:
-- Photos and media of the robot and the team, include videos of robot driving
-- Description of how robot works or at least what we did. 
-- Code commits like justin case.
  
 ## Robot overview ⚙️
 For our robot, we were aiming for a beginner friendly yet functional design, which is why we used the help of **Pybricks** and **Lego SPIKE** to develop our machine. This was done because, despite the fact we wanted to learn as much as possible, topics like wiring and electronics requiered a skill level we would need more time to reach than we had and we wanted to have the machine working in its best form for the time of the competition as much as we wanted to learn from making it.
 
-(PONER OTRA VEZ A NOTECHOQUES DESPUES DE MEJORAR EL MEDIA)
+<img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/v-photos/right-view.jpg?raw=true" width="10%" height="10%">
 
+## Mechanical Systems 
 
-### Mechanical Systems 
+### Why lego?
+As an up and coming team, there was bound to be a lot of trial and error with basic concepts which would mean lots of prototyping on parts that seemed "simple" or "basic". Which is why the lego "Spike" kit was ideal for us, with lego providing a solid toolset with all the basic materials needed for the robot along with the proper flexibility to commit any changes needed on the fly, we are planning in the future to pivot towards more professional hardware such as switching out the lego hub for a raspberry or audino, however lego ended up being the best option for the time being since most of the team members had little to no expirience with electronics, making this is a perfect opportunity to ensure a decent amount of customizability without overwhelming any of the members with details like learning breadboards or soddering.
 
-The robot's steering system was made with mechanical differential drive, with gears ensuring maximum customizability of the robot's speed for the wheels, the steering was done with an acherman directional in the front of the vehicle, with the back being hooked up to a rotatory motor which allows it to quickly adjust the speed of the robot, at least enough for it to do everything we need it to.
+### Basic Structure and framing
+We aimed to make the robot as lightweight as possible while still not compromising on stability, which would be crucial specially at higher speeds as the challenge went on and more optimizations were added. For this we connected a "main frame" of sorts to the bottom of a hub to act as an anchor for all the other parts of the robot, with side parts like the sensors being placed directly on the sides connected to technic beams as to make sure they did not interfere with any of the drive's business.
+
+We were not too worried on trying to make it so that our robot could hit a full 360 on rotations, as there were very little situations during the challenge where we saw that we would need an inmideate turn beyond 90 degrees, instead opting for an ackermann steering (more details below). This mainly happened as our drive motor and steering motor were relatively the same (as they were the type of motors provided by the kit), however with one having the angle repourposed to become a built in encoder of sorts which was especially helpful during segments like parking where maximum precision was needed, although we didn't try too hard to get a full specialized encoder made specifically for that purpose as it was not used enough for that to make too much of a difference.
+
+### Ackermann steering
+
+As our robot has limited power to use with the wheel, ackermann sterring permitted us to be able to invest as much of that power as possible fueling every turn and letting as much of that power be invested in just two of the wheels (resulting in more power by result) instead of having to try to get the motor to feed every single wheel at a time. To further add speed to this setup, we opted for a gear up mechanism, with this being the best way to increase speed as much as possible without compromising on weight or not adding too many things as to not overwhelm the motors.
+
+<img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/Other/Ackermann-steering-sketch.png?raw=true">
 
 ### Command based parking
 <img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/other/Parking.gif" alt="parking" width="50%" height="50%">
