@@ -205,6 +205,7 @@ The first turn is used as a "template" of sorts for every other turn between two
         else:
          robot state = turn right
    else
+      pass
 
 ```
 
