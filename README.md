@@ -2,11 +2,11 @@
 Chompers Munchers is a Panama based team comprised of three students which aim to learn the most of what is possible with our skillsets and aim to learn even more along the way, we are participating in the "WRO FE 2026: Self Driving Cars" challenge. In this documentation you'll be able to find everything about the team and robot, from details on each members to the creations and composition of Notechoques.
 
 ## Overview of the repository 📋
-- [**1. Meet the Munchers!**](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/README.md#meet-the-munchers-)
+- [**1. Meet the Munchers! 😋**](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/README.md#meet-the-munchers-)
 
-- [**2. Robot Overview**](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/README.md#robot-overview-%EF%B8%8F)
+- [**2. Robot Overview 🤖**](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/README.md#robot-overview-%EF%B8%8F)
 
-   - [2.1 Mechanical Systems](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS#mechanical-systems-%EF%B8%8F)
+   - [2.1 Mechanical Systems 🛠️](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS#mechanical-systems-%EF%B8%8F)
 
       - 2.1.1 Why lego?
 
@@ -14,11 +14,11 @@ Chompers Munchers is a Panama based team comprised of three students which aim t
 
       - 2.1.3 Ackermann Steering
 
-   - [2.2 Power Management](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS#power-management-)
+   - [2.2 Power Management ☀️](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS#power-management-)
 
-   - [2.3 Software Design and strategy](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS#software-design-and-strategy-)
+   - [2.3 Software Design and strategy 📜](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS#software-design-and-strategy-)
 
-- [**3. Robot Structure**](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS#robot-structure-)
+- [**3. Robot Structure 📐**](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS#robot-structure-)
 
    - 3.1 Robot Dimensions
 
