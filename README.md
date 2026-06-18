@@ -100,7 +100,7 @@ This ~3:1 reduction between gears cascading downwards towards the motor (from la
 ### Battery
 Related to power, we mostly rely on the hub's power bank which we have attempted to keep on the top for the easiest access in case of any emergency where it is necessary to switch out the battery, as to do so with as little hassle as possible. 
 
-(PLACE POWER TABLE HERE, I'm sorry coach I promise it will appear at some point)
+
 ### Censors
 
 #### Distance censors
