@@ -17,7 +17,7 @@ Chompers Munchers is a Panama based team comprised of three students which aim t
    - [2.2 Power Management and censors ☀️](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS#power-management-)
  
         - 2.2.1 Battery 🔋
-        - 2.2.2 Censors 🔈
+        - 2.2.2 Sensors 🔈
              2.2.2.1 Distance Censors 📏
              2.2.2.2 Gyroscope 🛞
              2.2.2.3 Encoders 📏
@@ -101,7 +101,7 @@ This ~3:1 reduction between gears cascading downwards towards the motor (from la
 Related to power, we mostly rely on the hub's power bank which we have attempted to keep on the top for the easiest access in case of any emergency where it is necessary to switch out the battery, as to do so with as little hassle as possible. 
 
 
-### Censors
+## Sensors
 
 #### Distance censors
 
