@@ -41,29 +41,29 @@ Chompers Munchers is a Panamenian team comprised of three students which aim to 
 
 ## Meet the munchers! 🙌
 
-Despite the fact that no one was stuck to a specific role, there were things some of us excelled at and as so did for most of our time.
+Originally, no one was assigned a specific role, we all did a little bit of everything, but each one mainly focused on the tasks we excelled at. 
 
 ### Leonardo Cubeddu
 
-He was in charge of all things coding, making sure that our code was able to work reliably and nudging the little software details to ensure everything was right on track, besides that he also helped a lot with adjusting the robot and ensuring that we didn't wreck the robot doing tasks like replacing the battery.
+He was in charge of all things related to coding, making sure that our code was able to work reliably, and nudging the little software details to ensure everything was right on track. Besides that, he also helped a lot with adjusting the robot and ensuring that the rest of the team didn't wreck the robot while doing tasks like replacing the battery.
 
 *Born*: 2010, Venezuelan
 
 ### Ana Lozano
 
-She was mostly in charge of documentation, making every change be noted and ensuring that everyone was always up to date with what to do, may it be by looking up rules when needed or keeping a record of all changes done during each meeting.
+She was mostly in charge of documentation, taking note of every change, and ensuring that everyone was always up to date with their tasks, may it be by looking up rules when needed or keeping a record of all changes done during each meeting.
 
 *Born*: 2010, Panamenian
 
 ### Verónica Perozo 
 
-She was in charge of everything mechanical, doing tweaks and adjustments may it be to the design of the robot to optimize for speed or checking around things like PID to ensure that the robot was always running smoothly and having the best performance it could have.
+She was in charge of everything mechanical, doing tweaks and adjustments like the design of the robot, optimizing speed, or checking around things like PID to guarantee that the robot was always running smoothly and having the best performance it could have.
 
 *Born*: 2011, Venezuelan
 
 ### Dwight Sutherland
 
-Dwight is our mentor, he guides us along the way laying the basics for everything we do and making sure we can make the most out of what we have, checking our work and correcting us when needed to ensure that we are on the right path.
+Dwight is our mentor, he guides us along the way laying the basics for everything we do, making sure we can make the most out of what we have, checking our work and correcting us when needed to ensure that we are on the right path.
 
 *Born*: 2001, Panamenian
  
