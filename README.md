@@ -41,7 +41,7 @@ Chompers Munchers is a Panamenian team comprised of three students which aim to 
 
 ## Meet the munchers! 🙌
 
-Originally, no one was assigned a specific role, we all did a little bit of everything, but each one mainly focused on the tasks we excelled at. 
+Originally, no one was assigned a specific role, we all did a little bit of everything, but each one of us mainly focused on the tasks we excelled at. 
 
 ### Leonardo Cubeddu
 
