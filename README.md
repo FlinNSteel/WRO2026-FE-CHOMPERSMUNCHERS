@@ -94,7 +94,7 @@ This ~3:1 reduction between gears cascading downwards towards the motor (from la
 
 <img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/other/guided-back-view.png?raw=true" width="50%" height="50%">
       *Guided back view of the robot, the gears are right behind the "drive motor" area".
--# disclaimer! The robot may look different but the rear part works just about the same, if any changes are done with the back part this section will be updated.
+ <Small>disclaimer! The robot may look different but the rear part works just about the same, if any changes are done with the back part this section will be updated.</Small>
 
 ## Power management and Censors ⚡
 
