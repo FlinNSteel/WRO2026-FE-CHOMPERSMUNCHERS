@@ -176,7 +176,7 @@ Original file in [other's](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNC
 <img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/other/main-loop-chart.png?raw=true" width="50%" height="50%">
 
 Our core loop consist of a relatively simple but effective "mantener_linea_recta" function, which guides the robot to stay as aligned to its initial position which is measured by our gyro, with it reseting to 0 at the start of the round and then trying to maintain itself as close to 0 with the help of our PID.
-
+(may get moved or deleted)
 #### PID
 
 Our PID is what keeps the robot stable, which we integrated into the code's "mantener_linea_recta" function with a series of formulas to calculate how far the robot deviated and how big the oscilation has to be to ensure the robot stays as stable as possible.
