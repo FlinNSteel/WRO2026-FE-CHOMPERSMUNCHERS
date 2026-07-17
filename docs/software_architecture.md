@@ -39,6 +39,7 @@ These functions include everything that does not directly make the robot move bu
 | --- | --- |
 | **leer_sensores** | This function allows for a constant reading of the sensors while filtering out any jaggies to minimize the rate of false positives as much as possible and avoid overcrowing the cpu by having it clear the censors constantly after every reading. |
 ### 2.3 Action Functions
+These functions will make the robot do a certain action with the context provided from the **reading functions** (check above).
 | function name | function description |
 | --- | --- |
 | **mover_por_mm** | This function turns the **degrees** from the robot's drive (which acts as some sort of rotatory motor) to **mm** (distancia_in_mm * 360) / (62 * 3.1416) with 62mm being the wheel's size, after this, the signal is sent to the motor so it can move, its not ideal for constant movement but works for more precise matters like adjusting or parking|
