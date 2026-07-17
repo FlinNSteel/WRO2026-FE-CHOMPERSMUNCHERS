@@ -26,7 +26,7 @@ This section will go into detail on how the code works, including **firmware**, 
 
 This will go into detail with the **firmware** and **custom functions** made to be able to complete each one of the functions of the robot, these will be displayed in the guide below by category.
 
-### 2.1 brief guide
+### 2.1 lalalalalala
 * *italics:* Any function in *i* has yet to be finished, its either being worked on currently or planned to be done in the future, this section will stop being updated after the competition ends.
 * **bold:** Any function in **b** is custom, meaning that it wasn't picked out of any library and you'll most likely have to look at the given description for since it isn't shown on any external documentation.
 * ``script:`` Any function in **s** is one that's in consideration to be redesigned or deleted entirely in the code, this section will stop being updated after the competition ends.
