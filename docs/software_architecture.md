@@ -36,12 +36,13 @@ This will go into detail with the **firmware** and **custom functions** made to 
 ### 2.2 State Functions
 | function name | function description |
 | --- | --- |
-| **giro_ajuste** | this will go smaller "turns" when the robot gets too close to a wall to avoid bumping on both sides, by calculating the amount of mm we need to get out with our sensor difference (limit - current_distance) and then turning that into degrees before forcing the robot to see in that direction until it the difference in the sensors does not surpass the limit of distance.|
-| **mantener_linea_recta** | if it notices it's not the set "direction" that it should be, it will calculate the angle to return to the "ideal" state without interrupting any other function by relying on PID instead of an on-off mechanism.|
+|``**girar**``| In the first instance of a turn, the ``girar()`` measure will be able to check which side the robot is turning to, using this to determine the "state" it has to be in, which will choose things like the degree of turn for every other big turn afterwards with a variable called "giro_direc" that can be either 0 or 1.|
+|**mantener_linea_recta**||
 ### 2.3 Precaution Functions
 | function name | function description |
 | --- | --- |
-|||
+| **giro_ajuste** | this will go smaller "turns" when the robot gets too close to a wall to avoid bumping on both sides, by calculating the amount of mm we need to get out with our sensor difference (limit - current_distance) and then turning that into degrees before forcing the robot to see in that direction until it the difference in the sensors does not surpass the limit of distance.|
+| **mantener_linea_recta** | if it notices it's not the set "direction" that it should be, it will calculate the angle to return to the "ideal" state without interrupting any other function by relying on PID instead of an on-off mechanism.|
 ### 2.5 Mobility Functions
 | function name | function description |
 | --- | --- |
@@ -50,6 +51,3 @@ This will go into detail with the **firmware** and **custom functions** made to 
 | ``girar`` | after being given the **turn angle** in the first turn (check 2.2 State functions), it will force the steering to that degree and start driving a "straight" line (or curved to our eyes) while constantly measuring gyro measures, it will stop once the gyro detects a full 90 degree has been done and will set the current position as the new heading by adding or reducing to the number depending on the direction in which the robot is turning (check 2.2 State functions) |
 | steering.run_target | It will force the steering of the angular motor (my setting it quickly to a specific position) to make the robot turn to a specific direction, run is used to avoid the "smooth acceleration" that would be used with other turning functions as to make the turns quicker as the robot is able to handle harsh turns.|
 | drive.run | This function will cause the drive motor to run for an indefinite amount of time at a certain speed until the ``drive.stop`` function is set, you cannot set an angle or time for the run during the function instead having to set them all before or after with functions like ``wait`` and ``steering.run_target``|
-
-
-<small> (Hi there! for me later, remember to separate the functions in: Mobility (how does the robot move, like the rlly basic stuff), precautions (anything the robot has to do to avoid being stuck in a certain position) and state (anything done before actions to make everything work well like leer sensores and robot state stuff), functions can be in more than 1 section at once if necessary but don't overuse it.) </small>
