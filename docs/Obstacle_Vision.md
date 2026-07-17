@@ -13,16 +13,16 @@ When a "blob" is detected, depending on the color read, the robot will be forced
 
 Before implementing the code, a hypothetical "test" version was used to run the code on a simulated micropython, with the input from the camera being replaced with the ``temp`` variable, which would decrease in value gradually until hitting 0, where the robot would detect that the hypothetical blob was "no longer there" and so the obstacle had "been evaded"
 
-``
+```
 import time
 is_in_sight = 1
 temp = 1
 color = str('red')
 
 while is_in_sight == 1:
-    if color == str('green'): ## greeennnn :]>
+    if color == str('green'): 
         print('evading green block, current temp time', temp,)
-    elif color == str('red'): #rrredddd *u*
+    elif color == str('red'): 
         print('evading red block')
     time.sleep(0.5) #replace time with wait later
     temp -= 0.3
@@ -30,4 +30,4 @@ while is_in_sight == 1:
       is_in_sight = 0
 else:
     print("pillar with da color", color,"evaded sucessfully")
-``
+```
