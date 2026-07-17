@@ -1,8 +1,8 @@
 ## Obstacle Vision
-
-This section will be dedicated on explaining how we use the OPENMV camera to observe the enviorment around the robot and determine certain information, mostly in the **obstacle challenge** but we are also planning to implement it into the **open challenge** loop.
-For this challenge, we are presenting the code in **micropython** for the **Open MV cam M7**. 
 ---
+This section will be dedicated on explaining how we use the OPENMV camera to observe the enviorment around the robot and determine certain information, mostly in the **obstacle challenge** but we are also planning to implement it into the **open challenge** loop.
+For this challenge, we are presenting the code in **micropython** for the **Open MV cam M7**.
+
 ## 1. Strategy summary
 Our strategy, starting in the camera finds the area of each "blob" on the camera, these blobs are the red or green traffic signs to be avoided. To do this, first we detect where in the "priority area" it is, areas on the side are set to a value of less priority than the one in the center, where the robot is at the highest risk of of crashing into the sign.
 After this, we check the color of the blob before sending the area to the hub. The hub will recieve how high the priority of the "blob" was, the color, and the amount of said color of the "blob".
