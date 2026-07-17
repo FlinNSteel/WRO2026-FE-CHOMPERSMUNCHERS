@@ -49,3 +49,11 @@ These functions will make the robot do a certain action with the context provide
 | drive.run | This function will cause the drive motor to run for an indefinite amount of time at a certain speed until the ``drive.stop`` function is set, you cannot set an angle or time for the run during the function instead having to set them all before or after with functions like ``wait`` and ``steering.run_target``|
 | **mantener_linea_recta** | if it notices it's not the set "direction" that it should be, it will calculate the angle to return to the "ideal" state without interrupting any other function by relying on PID instead of an on-off mechanism.|
 
+## 3. Key constants
+
+* ``LIMITE_IZQ & LIMITE_DER:`` They define the amount of degrees of rotation from the center can be physically done before the robot jams
+* ``LIMITE_ROT:`` The minimum difference that needs to be registered between the two ultrasonic sensors on the sides to put the robot in a "turning" state.
+* ``LIMITE_DIST_RECTO (unused):`` Hypothetical maximum distance between the frontal sensor (which no longer exists) and the wall to have the robot go into a "turn" state in the case that the lateral sensors didn't register in time (This was changed and instead, the lateral sensors were sent forward).
+* ``ROT_TIME_MIN:`` After the first turn, the timer will serve as a minimum of time to be waited before turning again, if a turn is attempted before the timer is over, it will be canceled. This is to further filter out jaggies and remove false positives in the middle of driving.
+* ``MAX_VUELTA:`` This is the maximum number of turns it has to do before stopping, letting the robot stop automatically after completing all 3 laps.
+
