@@ -55,8 +55,8 @@ All these functions are set in the ``sensor.(config)`` format and help know the 
 To calibrate the detection of the blobs, a "threshold" is used instead of a fixed RGB or HSV value, where it has a range of each one of the LAB values, which was calibrated using the built in value checker in OPENMV, the calibration process goes as follows.
 
 * Put the object in the enviorment it will be in
-*  Check the "min" value
-*   If the "min" value of the camera is lower than the threshold's, replace it.
-*     heck the "max" value
-*  If the "max" value of the camera is higher than the threshold's, replace it.
-*   Repeat for each value
+* Check the "min" value
+* If the "min" value of the camera is lower than the threshold's, replace it.
+* Check the "max" value
+* If the "max" value of the camera is higher than the threshold's, replace it.
+* Repeat for each value
