@@ -51,3 +51,12 @@ All these functions are set in the ``sensor.(config)`` format and help know the 
 * ``.set_saturation:`` Sets the saturation for the camera, set a high value to ensure the colors are easy to recognize for the camera.
 * ``.set_contrast:`` Sets the contrast of the camera, with a high contrast being set to let the colors be easily differenciated from parts like the white of the floor.
 * ``.set_auto_grain:`` It controls light sensitivity of the camera, this was disabled as to have the value be constant to avoid having the camera "auto recalibrate".
+### 2.2 Threshold calibration
+To calibrate the detection of the blobs, a "threshold" is used instead of a fixed RGB or HSV value, where it has a range of each one of the LAB values, which was calibrated using the built in value checker in OPENMV, the calibration process goes as follows.
+
+1. Put the object in the enviorment it will be in
+2. Check the "min" value
+3. If the "min" value of the camera is lower than the threshold's, replace it.
+4. Check the "max" value
+5. If the "max" value of the camera is higher than the threshold's, replace it.
+6. Repeat for each value
