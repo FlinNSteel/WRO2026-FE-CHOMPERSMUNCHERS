@@ -35,3 +35,19 @@ else:
 > "Temp" is a temporary variable to be replaced with camera input in a hypothetical "check_priority" or "find_blob" function in the code.
 
 The ``is_in_sight`` function determines if a blob is present or not, with it activating the turning protocol (which would go where the "evading ___" block is) if it is. This is all slipped into a ``while`` that will run until the blob is no longer in function, with the "if" only running once to check the blob's color to avoid the robot having to constantly check which color it is, which would waste cpu usage.
+## 2. Camera detection
+
+Here, we will be displaying and glossing over how "blobs" are detected in the OPENMV software, showing the ways they can determine the distance and priority of each "blob" and then send those variables directly to the hub to be used, having all the calculations already done to avoid any delay with the code.
+> **Note!**
+> This is all yet to be fully implemented in the actual code, as so, major changes are very likely to happen between this version and the final one implemented in the code.
+### 2.1 Initial configuration
+All these functions are set in the ``sensor.(config)`` format and help know the usual adjustments of the camera to run on.
+
+* ``.reset:`` Starts the camera.
+* ``.setpixformat:`` Sets the pixel format to ``RGB`` so it can load colors and detect which color each "blob" is.
+* ``.set_framesize:`` It checks the resolution of the camera, big enough for it to read a clear image but not too much as to not saturate the console.
+* ``.skip_frame:`` Waits a certain amount of time before the camera fully adjusts.
+* ``.set_auto_exposure:`` This is set to false, as enabling it could have the exposure shift between takes depending on where it starts, instead having it set on a fixed value to minimize variation.
+* ``.set_saturation:`` Sets the saturation for the camera, set a high value to ensure the colors are easy to recognize for the camera.
+* ``.set_contrast:`` Sets the contrast of the camera, with a high contrast being set to let the colors be easily differenciated from parts like the white of the floor.
+* ``.set_auto_grain:`` It controls light sensitivity of the camera, this was disabled as to have the value be constant to avoid having the camera "auto recalibrate".
