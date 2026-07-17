@@ -1,4 +1,5 @@
 ## Obstacle Vision
+
 This section will be dedicated on explaining how we use the OPENMV camera to observe the enviorment around the robot and determine certain information, mostly in the **obstacle challenge** but we are also planning to implement it into the **open challenge** loop.
 For this challenge, we are presenting the code in **micropython** for the **Open MV cam M7**. 
 ---
