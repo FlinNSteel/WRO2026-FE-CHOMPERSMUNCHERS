@@ -31,3 +31,7 @@ while is_in_sight == 1:
 else:
     print("pillar with da color", color,"evaded sucessfully")
 ```
+> **Note!**
+> "Temp" is a temporary variable to be replaced with camera input in a hypothetical "check_priority" or "find_blob" function in the code.
+
+The ``is_in_sight`` function determines if a blob is present or not, with it activating the turning protocol (which would go where the "evading ___" block is) if it is. This is all slipped into a ``while`` that will run until the blob is no longer in function, with the "if" only running once to check the blob's color to avoid the robot having to constantly check which color it is, which would waste cpu usage.
