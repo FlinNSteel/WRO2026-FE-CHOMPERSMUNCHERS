@@ -60,3 +60,5 @@ To calibrate the detection of the blobs, a "threshold" is used instead of a fixe
 * Check the "max" value
 * If the "max" value of the camera is higher than the threshold's, replace it.
 * Repeat for each value
+
+### 2.3 Main loop
