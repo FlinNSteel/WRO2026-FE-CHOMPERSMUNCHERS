@@ -72,7 +72,7 @@ For our robot, we were aiming for a beginner friendly yet functional design, whi
 
 Our main mission with this robot was not to make a jack of all trades, but instead of a master of one; Focusing on trying to perfect our core loop for the open challenge rather than trying to branch out to every single possible scenario.
 
-<img src="[https://i.postimg.cc/qv3vBXPh/Screenshot-2026-08-07-at-2-46-01-PM.png](https://i.postimg.cc/4y7rvwbz/NOTECHOQUES.avif)" width="50%" height="50%">
+<img src="https://i.postimg.cc/4y7rvwbz/NOTECHOQUES.avif" width="50%" height="50%">
 
 ## Mechanical Systems 🛠️
 
