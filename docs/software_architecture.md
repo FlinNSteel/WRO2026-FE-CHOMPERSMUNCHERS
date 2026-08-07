@@ -48,6 +48,7 @@ These functions will make the robot do a certain action with the context provide
 | steering.run_target | It will force the steering of the angular motor (my setting it quickly to a specific position) to make the robot turn to a specific direction, run is used to avoid the "smooth acceleration" that would be used with other turning functions as to make the turns quicker as the robot is able to handle harsh turns.|
 | drive.run | This function will cause the drive motor to run for an indefinite amount of time at a certain speed until the ``drive.stop`` function is set, you cannot set an angle or time for the run during the function instead having to set them all before or after with functions like ``wait`` and ``steering.run_target``|
 | **mantener_linea_recta** | if it notices it's not the set "direction" that it should be, it will calculate the angle to return to the "ideal" state without interrupting any other function by relying on PID instead of an on-off mechanism.|
+| **AmIGayQuiz** | This function is in charge of defining when a turn will happen, using the color sensor in the bottom of the robot to measure for the colored lines and suggesting the initial robot state to be used when deciding which direction to turn to for the rest of the track. |
 
 ## 3. Key constants
 
@@ -56,4 +57,8 @@ These functions will make the robot do a certain action with the context provide
 * ``LIMITE_DIST_RECTO (unused):`` Hypothetical maximum distance between the frontal sensor (which no longer exists) and the wall to have the robot go into a "turn" state in the case that the lateral sensors didn't register in time (This was changed and instead, the lateral sensors were sent forward).
 * ``ROT_TIME_MIN:`` After the first turn, the timer will serve as a minimum of time to be waited before turning again, if a turn is attempted before the timer is over, it will be canceled. This is to further filter out jaggies and remove false positives in the middle of driving.
 * ``MAX_VUELTA:`` This is the maximum number of turns it has to do before stopping, letting the robot stop automatically after completing all 3 laps.
+
+## 4. Distance Parameters
+
+## 5. PID/Orientation control
 
