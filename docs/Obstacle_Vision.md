@@ -61,4 +61,38 @@ To calibrate the detection of the blobs, a "threshold" is used instead of a fixe
 * If the "max" value of the camera is higher than the threshold's, replace it.
 * Repeat for each value
 
-### 2.3 Main loop
+### 2.3 Sifting through blobs
+To ensure that any stray pixels in the camera or background's with "color" (as detected by the camera) avoid being detected as pillars or "blobs", the camera does a sort of "sifting", for this, a maximum and minimum pixel values were set based on the usual height and width a pillar would actually take up on the blob's camera space, if any blob fails to register by either being too small or big, it is ignored. A second layer is done where the ratio is measured and if it passed a minimum, it also gets passed; This measure was made to avoid having anything such as a string accidentally take up the value.
+
+```
+def blobvalido(blob):
+h = blob_attr(blob, 'h')
+w = blob_attr(blob, 'w')
+if h < MIN_HEIGHT_PX or w > MAX_WIDTH_PX or w == 0:
+    return False
+if h/w < RATIO_MIN:
+    return False
+return True
+```
+
+This is all done through a simple series of if statements, first obtaining the blobs found along with their dimensions in pixel value before checking if their dimensions along within our limits.
+
+### 2.4 Aproximation of blob dimensions
+
+Then would come being able to turn the values from pixels the screen can see to centimeters we can use to define how much of a concern the pillar shoulds be to the robot currently, for this we use two functions ``interp_y`` and ``interp_x``, which work as "translators" of sorts, these work in relatively similar ways, as so they'll be explained as one.
+
+First a "calibration" of sorts was doing by recording the pixel and "cm" heights of each blob, with importance rising the closer it was to the robot. All of these values were fed into an approximation machine, for example, if a pixel height of "115" was obtained and the closest value was "110", the equivalent in cm to that would be used in the table to calculate the value, usando el cx (posicion en x) para poder determinar cualquier tipo de offset cual se podria afectar el valor total del pixel height.
+
+This is not because we actually need to know the size of the pillar, as it never changes but it is useful to define the mode we will run the code on, this "mode" displays the urgency of the turn and so things like the speed and angle that it turns at, heere is a table of the modes among with the "height" each one has:
+
+| Mode | "height" |
+| --- | --- |
+| <19 | emergency |
+| <29 | act |
+| <39 | slow |
+| >39 | watch |
+
+You might be asking yourself, "Why are the ones with a smaller height the most important ones, don't objects look bigger when they're close?" which would be the case, however, we count the height from the start of the camera to the pillar itself to approximate distance, so the smaller that threshold is, the closer it is to the camera and by association, the robot. This information is then fed to the hub, which will know how to react to each pillar it "sees", with it increasing the angle by increments of ~10 using a similar system to the PID (Check that part), except for emergency where it lands on 45 instead of the expected 48 as that would go beyond the robot's physical limits.
+
+### 2.5 Defining the urgency of the blob
+
