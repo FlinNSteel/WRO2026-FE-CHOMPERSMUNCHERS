@@ -26,7 +26,7 @@ This section will go into detail on how the code works, including **firmware**, 
 
 This will go into detail with the **firmware** and **custom functions** made to be able to complete each one of the functions of the robot, these will be displayed in the guide below by category.
 
-### 2.1 lalalalalala
+### 2.1 Sidenote
 * *italics:* Any function in *i* has yet to be finished, its either being worked on currently or planned to be done in the future, this section will stop being updated after the competition ends.
 * **bold:** Any function in **b** is custom, meaning that it wasn't picked out of any library and you'll most likely have to look at the given description for since it isn't shown on any external documentation.
 * ``script:`` Any function in **s** is one that's in consideration to be redesigned or deleted entirely in the code, this section will stop being updated after the competition ends.
@@ -42,7 +42,6 @@ These functions include everything that does not directly make the robot move bu
 These functions will make the robot do a certain action with the context provided from the **reading functions** (check above).
 | function name | function description |
 | --- | --- |
-| **mover_por_mm** | This function turns the **degrees** from the robot's drive (which acts as some sort of rotatory motor) to **mm** (distancia_in_mm * 360) / (62 * 3.1416) with 62mm being the wheel's size, after this, the signal is sent to the motor so it can move, its not ideal for constant movement but works for more precise matters like adjusting or parking|
 | ``girar`` | after being given the **turn angle** in the first turn (check 2.2 State functions), it will force the steering to that degree and start driving a "straight" line (or curved to our eyes) while constantly measuring gyro measures, it will stop once the gyro detects a full 90 degree has been done and will set the current position as the new heading by adding or reducing to the number depending on the direction in which the robot is turning (check 2.2 State functions). In the first instance of a turn, the ``girar()`` measure will be able to check which side the robot is turning to, using this to determine the "state" it has to be in, which will choose things like the degree of turn for every other big turn afterwards with a variable called "giro_direc" that can be either 0 or 1. |
 | **giro_ajuste** | this will go smaller "turns" when the robot gets too close to a wall to avoid bumping on both sides, by calculating the amount of mm we need to get out with our sensor difference (limit - current_distance) and then turning that into degrees before forcing the robot to see in that direction until it the difference in the sensors does not surpass the limit of distance.|
 | steering.run_target | It will force the steering of the angular motor (my setting it quickly to a specific position) to make the robot turn to a specific direction, run is used to avoid the "smooth acceleration" that would be used with other turning functions as to make the turns quicker as the robot is able to handle harsh turns.|
@@ -54,11 +53,16 @@ These functions will make the robot do a certain action with the context provide
 
 * ``LIMITE_IZQ & LIMITE_DER:`` They define the amount of degrees of rotation from the center can be physically done before the robot jams
 * ``LIMITE_ROT:`` The minimum difference that needs to be registered between the two ultrasonic sensors on the sides to put the robot in a "turning" state.
-* ``LIMITE_DIST_RECTO (unused):`` Hypothetical maximum distance between the frontal sensor (which no longer exists) and the wall to have the robot go into a "turn" state in the case that the lateral sensors didn't register in time (This was changed and instead, the lateral sensors were sent forward).
 * ``ROT_TIME_MIN:`` After the first turn, the timer will serve as a minimum of time to be waited before turning again, if a turn is attempted before the timer is over, it will be canceled. This is to further filter out jaggies and remove false positives in the middle of driving.
 * ``MAX_VUELTA:`` This is the maximum number of turns it has to do before stopping, letting the robot stop automatically after completing all 3 laps.
 
 ## 4. Distance Parameters
+| | |
+| --- | --- |
+| ``LIMITE_DIST_RECTO`` | A constant that has the minimum distance to be had between one of the ultrasonic sensors and a wall, which is used in ``giro_ajuste`` to avoid crashing towards any of the two walls |
+|  || 
+
+### 4.2 How they are applicated into the code
 
 ## 5. PID/Orientation control
 
