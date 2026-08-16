@@ -1,4 +1,4 @@
-# Hardware and Components 
+# Hardware Architecture
 This section will describe all hardware components and their purpose. Most of our components are from the LEGO® Education
 SPIKE™ Prime set. 
 ## 1. Main Unit 
@@ -72,6 +72,7 @@ integrated advanced Rotation Sensor, the motor can report both speed and positio
   * Built-in USB interface
   * Can connect to external sensors and devices
 <img src="https://i.postimg.cc/0jxQ2HVG/Camara.png" width="50%" height="50%">
+
 
 
 
