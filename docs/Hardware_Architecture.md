@@ -1,5 +1,5 @@
 # Hardware and Components 
-This section will describe all hardware components and their purpose. All our components are from the LEGO® Education
+This section will describe all hardware components and their purpose. Most of our components are from the LEGO® Education
 SPIKE™ Prime set. 
 ## 1. Main Unit 
 ### Technic™ Large Hub
@@ -60,6 +60,18 @@ integrated advanced Rotation Sensor, the motor can report both speed and positio
   * Can help robots follow colored lines 
 <img src="https://i.postimg.cc/sX4pJJyB/Color-Sensor.png" width="50%" height="50%">
 
+### OpenMV Cam H7 Plus
+* **Quantity:** 1
+* **Description:** A small programmable camera designed for machine vision and embedded computer vision projects. It can capture images and use them to recognize colors, objects, shapes, and other visual features.
+* **Features:**
+  * High-performance STM32H743II microcontroller
+  * 5-megapixel OV5640 image sensor
+  * Supports image and video processing
+  * Can recognize colors, shapes, and objects
+  * Programmable with MicroPython
+  * Built-in USB interface
+  * Can connect to external sensors and devices
+<img src="https://i.postimg.cc/0jxQ2HVG/Camara.png" width="50%" height="50%">
 
 
 
