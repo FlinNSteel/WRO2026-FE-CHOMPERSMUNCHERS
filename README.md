@@ -123,7 +123,7 @@ For our encoders, we chose to use the integrated encoders inside of the motors a
 
 (located on the back)
 
-<img src='https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/other/guided-back-view.png?raw=true' width="50%" height="50%">
+<img src='https://i.postimg.cc/rp4kbcRj/Back-view.png' width="50%" height="50%">
 
 ## Software design and strategy 💻
 
