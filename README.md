@@ -249,5 +249,5 @@ else
 |--------|--------|
 | <img src="https://i.postimg.cc/QxwpjHMq/Screenshot-2026-08-20-at-3-09-26-PM.png" lenght="50px" width="50px"> |Lego Technic Spike wheel|
 |<img src="https://i.postimg.cc/1z29jxmW/Distance-Sensor.png" alt="Sensor" lenght="50px" width="50px">|Lego Technic Spike Prime ultrasonic sensor| 
-|<img src="https://i.postimg.cc/Cxt1WnJj/Large-Hub.png"> |Lego Spike Prime Large Hub|
+|<img src="https://i.postimg.cc/Cxt1WnJj/Large-Hub.png" alt="Hub" lenght="50px" width="50px"> |Lego Spike Prime Large Hub|
 |<img src="https://i.postimg.cc/htYc3FMX/Large-Angular-Motor.png" alt="Angular Motor" lenght="50px" width="50px"> |Lego Spike Prime big angular motor|
