@@ -92,7 +92,7 @@ As our robot has limited power to use with the wheel, ackermann sterring permitt
 
 This ~3:1 reduction between gears cascading downwards towards the motor (from largest to smallest) allowed for a lot less work to be needed from the motor and so a much smoother and quicker robot.
 
-<img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/other/guided-back-view.png?raw=true" width="50%" height="50%">
+<img src="https://i.postimg.cc/rp4kbcRj/Back-view.png" width="50%" height="50%">
       *Guided back view of the robot, the gears are right behind the "drive motor" area".
  
  <sup><sub>disclaimer! The robot may look different but the rear part works just about the same, if any changes are done with the back part this section will be updated.</sub></sup>
@@ -111,7 +111,7 @@ As our (sadly) least powerful but most used censors, distance censors are used a
 
 We have opted on Spike's ultrasonic censors for the time being as they were the best option available, despite their considerable amount of noise which is why they're usually paired up with something else in all of their functions to avoid sole reliance on them. As for their placement, the lateral censors are located in a vertical position as to keep it as close to the floor to avoid signals accidentally travelling too far and being detected as a false postive, which was specially important while testing the robot. As for the frontal one, it does opt for a horizontal position as it is very close to the front wheels and putting it any closer to the bottom of the robot could risk damage during steering and potential noise being caught from other motors to affect the motor's already subpar performance.
 
-<img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/other/guided-side-view.png?raw=true" width="50%" height="50%">
+<img src="https://i.postimg.cc/fbdNFZSv/side-view.png" width="50%" height="50%">
 
 #### Gyroscope
 
@@ -247,7 +247,7 @@ else
 
 | Materials | Material Descriptions |
 |--------|--------|
-| <img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/other/Lego-Spike-Wheel.jpg" alt="Wheel" lenght="50px" width="50px"> |Lego Technic Spike wheel|
-|<img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/other/Ultra_Sonic_Sensor.jpg" alt="Sensor" lenght="50px" width="50px">|Lego Technic Spike Prime ultrasonic sensor| 
-|<img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/other/Power_Hub.jpg" alt="Lego Hub" lenght="50px" width="50px"> |Lego Spike Prime Large Hub|
-|<img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/other/Rotatory_Motor.jpg" alt="Angular Motor" lenght="50px" width="50px"> |Lego Spike Prime big angular motor|
+| <img src="https://i.postimg.cc/QxwpjHMq/Screenshot-2026-08-20-at-3-09-26-PM.png" lenght="50px" width="50px"> |Lego Technic Spike wheel|
+|<img src="https://i.postimg.cc/1z29jxmW/Distance-Sensor.png" alt="Sensor" lenght="50px" width="50px">|Lego Technic Spike Prime ultrasonic sensor| 
+|<img src="https://i.postimg.cc/Cxt1WnJj/Large-Hub.png"> |Lego Spike Prime Large Hub|
+|<img src="https://i.postimg.cc/htYc3FMX/Large-Angular-Motor.png" alt="Angular Motor" lenght="50px" width="50px"> |Lego Spike Prime big angular motor|
