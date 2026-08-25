@@ -8,24 +8,24 @@ Chompers Munchers is a Panamenian team comprised of three students which aim to 
 
 |                                                       |                                                              |                                                        |
 |:-----------------------------------------------------:|:-----------------------------------------------------------:|:-------------------------------------------------------:|
-|        |  |             |
-| **Ana Melisa Lozano** <br> *Software Engineer*       | **Leonardo Cubeddu** <br> *Hardware Engineer*        | **Verónica Perozo** <br> *Logistics and Creativity*   |Programming <br>Documentation <br>Taking Notes <br> <br> <br> | Programming <br>Robot Structure <br> <br>,n xcvnfj <br>mfhvbrj <br>GitHub Repository|  Construction, <br>Wiring, <br>Circuit and PCB Design, <br>Power Management, <br>3D Modeling and Planning, <br>Animation and Illustration  |
+|    Fotito de ana     | fotito de leonardo  |      fotito de vero       |
+| **Ana Melisa Lozano** <br> *Programing and Documentation*       | **Leonardo Cubeddu** <br> *Mechanics and Construction*        | **Verónica Perozo** <br> *Logistics and Repository*   | 
+hola | hola| hola |
 
 ## Project Summary ⚙️
-For our robot, we were aiming for a beginner friendly yet functional design, which is why we used the help of **Pybricks** and **Lego SPIKE** to develop our machine. This was done because, despite the fact we wanted to learn as much as possible, topics like wiring and electronics requiered a skill level we would need more time to reach than we had and we wanted to have the machine working in its best form for the time of the competition as much as we wanted to learn from making it.
+For our robot, we were aiming for a beginner friendly yet functional design, which is why we used the help of **Pybricks** and **LEGO SPIKE** to develop our machine. This was done because, despite the fact we wanted to learn as much as possible, topics like wiring and electronics requiered a skill level we would need more time to reach than we had and we wanted to have the machine working in its best form for the time of the competition as much as we wanted to learn from making it.
 
 Our main mission with this robot was not to make a jack of all trades, but instead of a master of one; Focusing on trying to perfect our core loop for the open challenge rather than trying to branch out to every single possible scenario.
 
 <img src="https://i.postimg.cc/4y7rvwbz/NOTECHOQUES.avif" width="50%" height="50%">
 
 ## Overview of the repository 📋
-
+Index :)
 
 
 ## Photos and Videos 
 - Team Photos
 - Robot Photos
-- Demonstration Videos
 
-## 3D Models 
-- 3D model :)
+
+
