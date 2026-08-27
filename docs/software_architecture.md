@@ -66,3 +66,19 @@ These functions will make the robot do a certain action with the context provide
 
 ## 5. PID/Orientation control
 
+Our PID is what keeps the robot stable, which we integrated into the code's "mantener_linea_recta" function with a series of formulas to calculate how far the robot deviated and how big the oscilation has to be to ensure the robot stays as stable as possible.
+
+```
+    if error_rate != 0:
+        dt = (error_yaw - pid_state["prev_error"]) / error_rate
+    else:
+        dt = 0.01  # Valor de fallback seguro
+
+    pid_state["integral"] += error_yaw * dt
+    pid_state["prev_error"] = error_yaw
+    
+    angulo_motor = (KP_YAW * error_yaw) + (KD_YAW * error_rate) + (KI_YAW * pid_state["integral"])
+```
+
+With this, we simply ran that value through our PID variables (which we obtained through rigorous testing) to have it determine how much does the steering motor have to turn to be able to correct the flaw.
+
