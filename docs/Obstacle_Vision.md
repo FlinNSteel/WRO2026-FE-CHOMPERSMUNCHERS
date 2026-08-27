@@ -96,3 +96,35 @@ You might be asking yourself, "Why are the ones with a smaller height the most i
 
 ### 2.5 Defining the urgency of the blob
 
+### 2.6 Filtering out fakes
+
+To ensure that no false positives might set off the alarm for the robot, we've built a system that is able to filter out blobs depending on certain traits which can flag them for being fake.
+
+The first system is a check for the area, we know that realistically there should be certain scenes that the robot should (when working) not be able to see, like pillars right on its fake after the limit to turn has been set, these characteristics look something like this (in pseudocode form to focus on the actual logic):
+
+```
+# assuming that lower limit is the smallest a pillar can be and higher limit the biggest a pillar could be
+if lower_limit > Detected_X_or_Y > higher_limit:
+    register the pillar
+else:
+    return False
+```
+
+After this, we can also check how "thin" or "tall" a pillar is, items like lines might be registered as "pillars" by accident because of having a decent size although very distorded proportions, so we made a "range" of sorts that the pillar should be around, like a ratio between width and lenght, if a part does not complete this ratio at all times, it is probably not a pillar.
+
+```
+# assuming that i_ratio is the ideal ration a pillar should have on screen
+if minimum_i_ratio > (height/width) > maximum_i_ratio:
+    register the pillar
+else:
+    return False
+```
+
+The third one is a little different compared to the other two, focusing on position instead of sizes, you see, sometimes "pillar-like" blobs would be detected on the floor because of the similar color to the camera between the red of the pillars and the color of the mat lines in the corners, as to avoid the robot getting confused, we set up a system so if the hightest point of a pillar went below a certain threshold, it'd be canceled no matter what as no pillar could realistically lay that low in the camera without the robot having crashed already into it, leaving the only posible conclusion to be that its a fake pillar.
+
+```
+if y_pillar > min_y:
+    register the pillar
+else:
+    return False
+```
