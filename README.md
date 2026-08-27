@@ -153,21 +153,9 @@ To access the code, the .py archive is opened inside of the pybricks website wit
   
 - If right is the farthest it will go and exit right if left is the farthest then it will exit left
 
-### Open Challenge Core loop
 
 ***
 ### Command reference table
-
-Since most of the code was mainly written with spanish terms as to facilitate the members of the team to be able to write it, we have provided a simplifided list of common terms or functions with their description.
-
-| Function Name | Function description |
-| --- | --- |
-| `mover-por-mm` | Used for distance specific movements (such as those for paralell parking and the end of laps) |
-| `mantener-linea-recta` | the main function to be executed between any section, activates the PID and ensures the robot stays aligned |
-| `giro-ajuste` | Smaller turns during sections which happen to avoid sticking too close to a wall |
-| `giro` | Bigger turns between sections to transition from one to the next |
-| `LIMITE-ROT` | The maximum accepted difference between distances read by censores before the system checks to see if it can do a big turn |
-| `robot-state` | The robot's definitive direction (set in the first turn) to do all the big turns between sections, any other kind of turn will not be affected |
 
 ### Main loop flow chart ➿
 
@@ -177,24 +165,6 @@ Original file in [other's](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNC
 
 Our core loop consist of a relatively simple but effective "mantener_linea_recta" function, which guides the robot to stay as aligned to its initial position which is measured by our gyro, with it reseting to 0 at the start of the round and then trying to maintain itself as close to 0 with the help of our PID.
 (may get moved or deleted)
-#### PID
-
-Our PID is what keeps the robot stable, which we integrated into the code's "mantener_linea_recta" function with a series of formulas to calculate how far the robot deviated and how big the oscilation has to be to ensure the robot stays as stable as possible.
-
-```
-    if error_rate != 0:
-        dt = (error_yaw - pid_state["prev_error"]) / error_rate
-    else:
-        dt = 0.01  # Valor de fallback seguro
-
-    pid_state["integral"] += error_yaw * dt
-    pid_state["prev_error"] = error_yaw
-    
-    angulo_motor = (KP_YAW * error_yaw) + (KD_YAW * error_rate) + (KI_YAW * pid_state["integral"])
-```
-
-With this, we simply ran that value through our PID variables (which we obtained through rigorous testing) to have it determine how much does the steering motor have to turn to be able to correct the flaw.
-
 ### Turning
 
 The first turn is used as a "template" of sorts for every other turn between two sections to happen through any lap, setting a "robot state" which stays unaltered for the rest of the lap's duration as to avoid having the robot accidentally turn the opposite way, this was done as a measure to force the robot to minimize the amount of mistakes it could make and having the robot become slightly independent from the sensors for the rest of the laps as they're relatively prone to give errors in the form of jaggies which could affect performance.
