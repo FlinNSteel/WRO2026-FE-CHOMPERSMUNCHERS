@@ -63,7 +63,7 @@ To calibrate the detection of the blobs, a "threshold" is used instead of a fixe
 
 ### 2.3 Sifting through blobs
 
-To ensure that no false positives might set off the alarm for the robot, we've built a system that is able to filter out blobs depending on certain traits which can flag them for being fake.
+To ensure that no false positives set off the alarm for the robot, we've built a system that is able to filter out blobs depending on certain traits which can flag them for being fake.
 
 The first system is a check for the area, we know that realistically there should be certain scenes that the robot should (when working) not be able to see, like pillars right on its fake after the limit to turn has been set, these characteristics look something like this (in pseudocode form to focus on the actual logic):
 
