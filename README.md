@@ -24,5 +24,5 @@ Index :)
 
 
 ## Photos and Videos 
-- Team Photos: 
-- Robot Photos
+- Team Photos: [view here](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/tree/main/t-photos)
+- Robot Photos: [view here](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/tree/main/v-photos)
