@@ -60,9 +60,11 @@ These functions will make the robot do a certain action with the context provide
 | | |
 | --- | --- |
 | ``LIMITE_DIST_RECTO`` | A constant that has the minimum distance to be had between one of the ultrasonic sensors and a wall, which is used in ``giro_ajuste`` to avoid crashing towards any of the two walls |
-|  || 
+| ``CORRECION_GIRO`` | Works as a calibration tool of sorts, since our "90 degrees" isn't perfectly accurate to the robot the number is added to make the turn slightly more or less open depending on the situation. |
 
 ### 4.2 How they are applicated into the code
+
+These kind of parameters have a sort of "configuration" feel to them as they are like final details to refine some parts of the robot, for example if there is a situation where the robot is laying too close to walls, one value can always be tweaked to keep the robot center, we made these values tweakable instead of set numbers in the function itself to make it a lot easier to fix up with any mechanical changes, things like changing the types of wheels affected the torque of the robot and so to ensure that the robot would always stay consistent after such changes, we keep the numbers safely stacked on the top for easy access.
 
 ## 5. PID/Orientation control
 
