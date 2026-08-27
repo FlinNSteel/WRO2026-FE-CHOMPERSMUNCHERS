@@ -10,7 +10,7 @@ Chompers Munchers is a Panamenian team comprised of three students which aim to 
 |:-----------------------------------------------------:|:-----------------------------------------------------------:|:-------------------------------------------------------:|
 |    Fotito de ana     | fotito de leonardo  |      fotito de vero       |
 | **Ana Melisa Lozano** <br> *Programing and Documentation*       | **Leonardo Cubeddu** <br> *Mechanics and Construction*        | **Verónica Perozo** <br> *Logistics and Repository*   | 
-hola | hola| hola |
+artificial vision <br> progress Monitoring <br> logo designer | main loop coding <br> main mechanic <br> 3D model designer | main designer <br> github crew <br> photographer  |
 
 ## Project Summary ⚙️
 For our robot, we were aiming for a beginner friendly yet functional design, which is why we used the help of **Pybricks** and **LEGO SPIKE** to develop our machine. This was done because, despite the fact we wanted to learn as much as possible, topics like wiring and electronics requiered a skill level we would need more time to reach than we had and we wanted to have the machine working in its best form for the time of the competition as much as we wanted to learn from making it.
