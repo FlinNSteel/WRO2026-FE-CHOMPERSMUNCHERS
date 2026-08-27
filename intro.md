@@ -24,8 +24,5 @@ Index :)
 
 
 ## Photos and Videos 
-- Team Photos
+- Team Photos: 
 - Robot Photos
-
-
-
