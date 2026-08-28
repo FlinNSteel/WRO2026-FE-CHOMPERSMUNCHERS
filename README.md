@@ -6,9 +6,12 @@ Welcome to our project repositoty for the 2026 World Robot Olympiad! In this doc
 ## Meet the munchers! 🙌
 Chompers Munchers is a Panamenian team comprised of three students which aim to learn the most of what is possible with our skillsets and even more along the way, we are participating in the "WRO FE 2026: Self Driving Cars" challenge.
 
+
+<img src="https://i.postimg.cc/13DNxxJN/Whats-App-Image-2026-08-28-at-1-11-15-PM.jpg" width="50%" height="50%">
+
 |                                                       |                                                              |                                                        |
 |:-----------------------------------------------------:|:-----------------------------------------------------------:|:-------------------------------------------------------:|
-|    Fotito de ana     | fotito de leonardo  |      fotito de vero       |
+|    fotito de Ana   | <img src="https://i.postimg.cc/rsRvh9Mp/Whats-App-Image-2026-08-28-at-1-01-26-PM-(1).jpg" width="50%" height="50%">  |     <img src="https://i.postimg.cc/pLvLFmY4/Whats-App-Image-2026-08-28-at-1-01-26-PM.jpg" width="50%" height="50%">       |
 | **Ana Melisa Lozano** <br> *Programing and Documentation*       | **Leonardo Cubeddu** <br> *Mechanics and Construction*        | **Verónica Perozo** <br> *Logistics and Repository*   | 
 artificial vision <br> progress Monitoring <br> logo designer | main loop coding <br> main mechanic <br> 3D model designer | main designer <br> github crew <br> photographer  |
 
