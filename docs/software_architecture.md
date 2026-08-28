@@ -84,3 +84,10 @@ Our PID is what keeps the robot stable, which we integrated into the code's "man
 
 With this, we simply ran that value through our PID variables (which we obtained through rigorous testing) to have it determine how much does the steering motor have to turn to be able to correct the flaw.
 
+# 6. Program flow / Main loop
+
+### Main loop flow chart ➿
+
+Original file in [other's](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/tree/main/other) tab
+
+<img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/other/main-loop-chart.png?raw=true" width="50%" height="50%">
