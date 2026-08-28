@@ -20,7 +20,7 @@ For our robot, we were aiming for a beginner friendly yet functional design, whi
 
 Our main mission with this robot was not to make a jack of all trades, but instead of a master of one; Focusing on trying to perfect our core loop for the open challenge rather than trying to branch out to every single possible scenario.
 
-<img src="https://i.postimg.cc/bNNCQ1qC/Carrrrr-(1).gif" width="50%" height="50%">
+<img src="https://i.postimg.cc/bNNCQ1qC/Carrrrr-(1).gif" width="50%" height="50%" align="center">
 
 ## Overview of the repository 📋
 Think of this like a "map" of sorts to find what you are looking for (unless you're looking for the main page, then I have great news for you). This list will work as an easy access and overview of each document.
