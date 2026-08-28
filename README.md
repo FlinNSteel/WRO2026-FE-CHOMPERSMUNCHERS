@@ -1,7 +1,7 @@
 # WRO2026-FE-ChompersMunchers
 Welcome to our project repositoty for the 2026 World Robot Olympiad! In this documentation you'll be able to find everything about the team and robot, from details on each members to the creations and composition of Notechoques.
 
-<img src="" width="100%" height="50%"
+<img src="https://i.postimg.cc/BZPdwdk4/a1441cc6-af3b-42c9-aee1-90be518ed864.jpg" width="100%" height="25%">
 
 ## Meet the munchers! 🙌
 Chompers Munchers is a Panamenian team comprised of three students which aim to learn the most of what is possible with our skillsets and even more along the way, we are participating in the "WRO FE 2026: Self Driving Cars" challenge.
