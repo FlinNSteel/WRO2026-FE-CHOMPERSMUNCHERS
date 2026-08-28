@@ -1,41 +1,60 @@
-# WRO2026-FE-ChompersMunchers
-Welcome to our project repositoty for the 2026 World Robot Olympiad! In this documentation you'll be able to find everything about the team and robot, from details on each members to the creations and composition of Notechoques.
+# WRO 2026 Future Engineers | Chompers Munchers 🤖🚗
 
-<img src="https://i.postimg.cc/BZPdwdk4/a1441cc6-af3b-42c9-aee1-90be518ed864.jpg" width="100%" height="25%">
+<p align="center">
+  <img src="https://i.postimg.cc/BZPdwdk4/a1441cc6-af3b-42c9-aee1-90be518ed864.jpg" width="100%" alt="Chompers Munchers Banner">
+</p>
 
-## Meet the munchers! 🙌
-Chompers Munchers is a Panamenian team comprised of three students which aim to learn the most of what is possible with our skillsets and even more along the way, we are participating in the "WRO FE 2026: Self Driving Cars" challenge.
+Welcome to the official project repository for **Chompers Munchers** competing in the **2026 World Robot Olympiad (WRO)**! This documentation covers everything regarding our team architecture, hardware, software, design decisions, and the development process of our autonomous vehicle, *Notechoques*.
 
+---
 
-<img src="https://i.postimg.cc/13DNxxJN/Whats-App-Image-2026-08-28-at-1-11-15-PM.jpg" width="50%" height="50%">
+## 👥 Meet the Team
 
-|                                                       |                                                              |                                                        |
-|:-----------------------------------------------------:|:-----------------------------------------------------------:|:-------------------------------------------------------:|
-|    fotito de Ana   | <img src="https://i.postimg.cc/rsRvh9Mp/Whats-App-Image-2026-08-28-at-1-01-26-PM-(1).jpg" width="50%" height="50%">  |     <img src="https://i.postimg.cc/pLvLFmY4/Whats-App-Image-2026-08-28-at-1-01-26-PM.jpg" width="50%" height="50%">       |
-| **Ana Melisa Lozano** <br> *Programing and Documentation*       | **Leonardo Cubeddu** <br> *Mechanics and Construction*        | **Verónica Perozo** <br> *Logistics and Repository*   | 
-artificial vision <br> progress Monitoring <br> logo designer | main loop coding <br> main mechanic <br> 3D model designer | main designer <br> github crew <br> photographer  |
+**Chompers Munchers** is a Panamanian team composed of three passionate students focused on expanding their technical skillsets through the **WRO Future Engineers 2026: Self-Driving Cars** challenge.
 
-## Project Summary ⚙️
-For our robot, we were aiming for a beginner friendly yet functional design, which is why we used the help of **Pybricks** and **LEGO SPIKE** to develop our machine. This was done because, despite the fact we wanted to learn as much as possible, topics like wiring and electronics requiered a skill level we would need more time to reach than we had and we wanted to have the machine working in its best form for the time of the competition as much as we wanted to learn from making it.
+<p align="center">
+  <img src="https://i.postimg.cc/13DNxxJN/Whats-App-Image-2026-08-28-at-1-11-15-PM.jpg" width="60%" alt="Team Photo">
+</p>
 
-Our main mission with this robot was not to make a jack of all trades, but instead of a master of one; Focusing on trying to perfect our core loop for the open challenge rather than trying to branch out to every single possible scenario.
+| **Ana Melisa Lozano** | **Leonardo Cubeddu** | **Verónica Perozo** |
+| :---: | :---: | :---: |
+| <img src="https://i.postimg.cc/rsRvh9Mp/Whats-App-Image-2026-08-28-at-1-01-26-PM-(1).jpg" width="200"> | <img src="https://i.postimg.cc/rsRvh9Mp/Whats-App-Image-2026-08-28-at-1-01-26-PM-(1).jpg" width="200"> | <img src="https://i.postimg.cc/pLvLFmY4/Whats-App-Image-2026-08-28-at-1-01-26-PM.jpg" width="200"> |
+| **Programming & Documentation** | **Mechanics & Construction** | **Logistics & Repository** |
+| • Artificial Vision<br>• Progress Monitoring<br>• Logo Designer | • Main Loop Coding<br>• Main Mechanic<br>• 3D Model Designer | • Main Designer<br>• GitHub Maintenance<br>• Photographer |
 
-<img src="https://i.postimg.cc/bNNCQ1qC/Carrrrr-(1).gif" width="50%" height="50%" align="center">
+---
 
-## Overview of the repository 📋
-Think of this like a "map" of sorts to find what you are looking for (unless you're looking for the main page, then I have great news for you). This list will work as an easy access and overview of each document.
+## ⚙️ Project Summary
 
-[Hardware Architecture:](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/docs/Hardware_Architecture.md) This section will list all the different parts (besides lego, as listing every piece individually seems highly unecessary) that were put into the robot such as sensors, cameras, etc. <br>
-[Design Overview:]() This section will provide explanation on different parts of the physical design besides the "Why lego?" question, adjustments that had to be made, improvements we would want to see among many other things. <br>
-[Software Architecture:](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/docs/software_architecture.md) This section will go into detail on how the code works, including firmware, libraries and modular functions run in the code to make it work. <br>
+Our engineering approach prioritizes a **beginner-friendly yet highly functional and reliable system**. To achieve this, we built our vehicle using **LEGO SPIKE** integrated with **Pybricks** firmware. This strategic choice allowed us to maximize software reliability and control logic without getting bogged down by custom PCB wiring and low-level electronics under tight competition deadlines.
 
-[Sensor Configuration:](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/docs/sensor_configuration.md) This section will go into detail about how non-camera sensors were set up to have them do their proper jobs (note! this will not go into detail on how these sensors were used, check software architecture for that) <br>
+Instead of aiming for a overly complex vehicle, our core focus was mastering the essentials: perfecting the primary control loop for the open challenge rather than over-engineering for edge cases.
 
-[Color Detection:](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/docs/Color_Detection.md) This section will mainly be used to explain color detection with the robot both in the camera and color sensor incorporated in the bottom of the robot (check [robot photos](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/tree/main/v-photos) for more details), this will go into detailed on how these devices were configured, the ways they were used and the troubleshooting done to minimize the rate of error in the robot and have it read color as effectively as it could for the specific tasks given. <br>
+<p align="center">
+  <img src="https://i.postimg.cc/bNNCQ1qC/Carrrrr-(1).gif" width="50%" alt="Robot Animation">
+</p>
 
-[Obstacle vision:](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/docs/Obstacle_Vision.md) This section will be dedicated on explaining how we use the OPENMV camera to observe the enviorment around the robot and determine certain information, using this information to effectively dodge obstacles effectively <br>
+---
 
+## 📋 Repository Structure
 
-## Photos and Videos 
-- Team Photos: [view here](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/tree/main/t-photos)
-- Robot Photos: [view here](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/tree/main/v-photos)
+Navigate through our technical documentation using the directory below:
+
+- 🛠️ **[Hardware Architecture](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/docs/Hardware_Architecture.md)** Detailed breakdown of sensors, actuators, microcontrollers, and cameras integrated into the chassis.
+
+- 📐 **[Design Overview](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/docs/Design_Overview.md)** RATIONALE behind chassis engineering choices, mechanical adjustments, physical iterations, and potential future improvements.
+
+- 💻 **[Software Architecture](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/docs/software_architecture.md)** Deep dive into source code, control algorithms, firmware integration, and modular functions.
+
+- 🎛️ **[Sensor Configuration](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/docs/sensor_configuration.md)** Calibration specs and operational setup for onboard distance, IMU, and positional sensors.
+
+- 🎨 **[Color Detection](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/docs/Color_Detection.md)** Technical analysis of optical sensors and camera calibration used for track surface reading and error reduction.
+
+- 👁️ **[Obstacle Vision](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/docs/Obstacle_Vision.md)** Implementation of the **OpenMV** camera for real-time object detection and dynamic obstacle avoidance.
+
+---
+
+## 📸 Media Gallery
+
+- 👨‍👩‍👧‍👦 **[Team Photos Directory](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/tree/main/t-photos)**
+- 🤖 **[Robot Build & Testing Gallery](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/tree/main/v-photos)**
