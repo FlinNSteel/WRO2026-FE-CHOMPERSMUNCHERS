@@ -112,3 +112,4 @@ This is not because we actually need to know the size of the pillar, as it never
 You might be asking yourself, "Why are the ones with a smaller height the most important ones, don't objects look bigger when they're close?" which would be the case, however, we count the height from the start of the camera to the pillar itself to approximate distance, so the smaller that threshold is, the closer it is to the camera and by association, the robot. This information is then fed to the hub, which will know how to react to each pillar it "sees", with it increasing the angle by increments of ~10 using a similar system to the PID (Check that part), except for emergency where it lands on 45 instead of the expected 48 as that would go beyond the robot's physical limits.
 
 ### 2.5 Defining the urgency of the blob
+
