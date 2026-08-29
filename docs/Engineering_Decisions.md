@@ -36,7 +36,7 @@ Our vehicle's structural layout was designed around stability, balance, and sens
 * **Low Center of Gravity (CoG):** Heavy components like the SPIKE Hub and OpenMV module are mounted low and centrally to prevent tipping during sharp, sudden turns.
 * **Strategic Sensor Placement:** Sensors are positioned at extreme outer boundaries (front, side, bottom) to maximize reaction time before approaching track walls or markers.
 
-  <img src="https://i.postimg.cc/4y7rvwbz/NOTECHOQUES.avif" alt="Back View" width="600"/>
+<img src="https://i.postimg.cc/4y7rvwbz/NOTECHOQUES.avif" alt="Back View" width="600"/>
 
 ---
 
