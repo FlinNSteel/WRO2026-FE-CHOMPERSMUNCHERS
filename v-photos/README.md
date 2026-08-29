@@ -1,42 +1,70 @@
-## Vehicle Photos
-Here, we have included some photos with relevant information related to the vehicle along with tagging some of the parts to easily display what is on each section, please refer to the images on this folder for a clear view, these guided ones are in the others tab.
+# Vehicle Photos
 
-### Photo list
+This section provides visual documentation of the vehicle's hardware layout. Key components and sensors are tagged across different angles to showcase the structural design and module placement.
 
----
-
-#### FRONT VIEW
-- Frontal sensor 
-- ⁠Left & Right sensors
-<img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/other/guided-back-view.png?raw=true">
+> **Note:** For guided images with additional annotations, please refer to the **Others** tab in this repository.
 
 ---
 
-#### BACK VIEW
-- Left & right sensors: measure the distance from the sides 
-- Drive motor: makes the robot move
-<img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/other/guided-back-view.png?raw=true">
+### Front View
+The front profile houses the main perception sensors for obstacle detection and color recognition.
+
+- **Color Sensor:** Detects surface colors and line markings.
+- **Left & Right Distance Sensors:** Provide front-side proximity measurement.
+- **Camera:** Handles visual processing and object tracking.
+
+<p align="center">
+  <img src="https://i.postimg.cc/d0CYXvZX/frontal-view.png" alt="Front View" width="700"/>
+</p>
 
 ---
 
-#### TOP VIEW
-- Left & right sensors 
-- ⁠Drive motor 
-- ⁠Frontal sensor 
-- ⁠Hub: Receives and sends  instructions, also serves as power supply (The big white block on the center)
-<img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/other/guided-top-view.png?raw=true">
+### Back View
+The rear section focuses on lateral distance tracking and main propulsion.
+
+- **Left & Right Distance Sensors:** Measure clearance and wall distance from the sides.
+- **Drive Motor:** Primary actuator responsible for linear motion.
+
+<p align="center">
+  <img src="https://i.postimg.cc/rp4kbcRj/Back-view.png" alt="Back View" width="700"/>
+</p>
 
 ---
 
-#### BOTTOM VIEW
-- Left and right sensors 
-- ⁠Frontal sensor: measures the distance from the front
-- ⁠Rotatory motor: makes the robot rotate and change direction
-<img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/other/guided-bottom-view.png?raw=true">
+### Top View
+Overview of the central processing unit and top-mounted sensors.
+
+- **Hub (Central Block):** Main programmable controller, power supply, and IMU.
+- **Camera:** Top angle view of the optical sensor.
+- **Drive Motor & Distance Sensors:** Placement context relative to the chassis.
+
+<p align="center">
+  <img src="https://i.postimg.cc/pdjH7x50/Top-view.png" alt="Top View" width="700"/>
+</p>
 
 ---
-#### SIDE VIEW
-- Right sensor 
-- ⁠Frontal sensor 
-- ⁠Drive motor
-<img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/other/guided-side-view.png?raw=true">
+
+### Bottom View
+Underside layout showing the steering mechanism and ground-facing sensors.
+
+- **Rotary (Steering) Motor:** Controls directional steering and wheel orientation.
+- **Color Sensor:** Ground-facing positioning for line tracking.
+- **Drive Motor & Distance Sensors:** Bottom profile alignment.
+
+<p align="center">
+  <img src="https://i.postimg.cc/ZqNSgZvc/upside-down-view.png" alt="Bottom View" width="700"/>
+</p>
+
+---
+
+### Side View
+Lateral perspective highlighting sensor clearance and profile height.
+
+- **Left Distance Sensor**
+- **Camera**
+- **Color Sensor**
+- **Drive Motor**
+
+<p align="center">
+  <img src="https://i.postimg.cc/fbdNFZSv/side-view.png" alt="Side View" width="700"/>
+</p>
