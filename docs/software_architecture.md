@@ -84,6 +84,14 @@ Our PID is what keeps the robot stable, which we integrated into the code's "man
 
 With this, we simply ran that value through our PID variables (which we obtained through rigorous testing) to have it determine how much does the steering motor have to turn to be able to correct the flaw.
 
+### 5.2 PID variables
+
+Sadly, PID isn't a magical tool you just plug into your robot and have it be running smoothly for the rest of eternity, it does need some adjustments to ensure that it truly works its magic, with these being the **kd**, **kp**, and **ki**; All made to guide the robot in a specific way, ensuring it will be able to master the art of not going off into the sides.
+
+| **KP - Proportional ** | **KD - Derivative ** | **KI - Integral ** |
+| :---: | :---: | :---: |
+| KP will calculate based on the *current* error given, say if you want a quicker response time and have it do a lot more in less time, you should raise it, although raising it too much may lead to overshoot. | KD tries to "predict" what will happen next and reduce or augment what KP and KI are saying based on that, think of it as a weather channel, you wouldn't go out with an umbrella if you thought rain would come, would you? It can be nice if your device is constantly oscilating, but if put too high it could start shaking violently assuming it needs to adjust for trouble that hasn't even arrived. | KI will assume how much "error per minute" you'll get, say if you go around 10 degrees to the left every minute it will try to calculate for that to avoid having to check constantly for the same 10 degrees every minute. |
+
 # 6. Program flow / Main loop
 
 ### Main loop flow chart ➿
