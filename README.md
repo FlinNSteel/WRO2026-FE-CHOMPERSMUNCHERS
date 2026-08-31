@@ -4,7 +4,9 @@
   <img src="https://i.postimg.cc/BZPdwdk4/a1441cc6-af3b-42c9-aee1-90be518ed864.jpg" width="100%" alt="Chompers Munchers Banner">
 </p>
 
-Welcome to the official project repository for **Chompers Munchers** competing in the **2026 World Robot Olympiad (WRO)**! This documentation covers everything regarding our team architecture, hardware, software, design decisions, and the development process of our autonomous vehicle, *Notechoques*.
+Welcome to the official project repository for **Chompers Munchers** competing in the **2026 World Robot Olympiad (WRO)**! This documentation covers everything regarding our team architecture, hardware, software, design decisions, and the development process of our autonomous vehicle, *Notechoques*. Our goal as a team is to learn as much as we can along the way, not necessarily having it be python and building cars (although that knowledge is also appreciated) but also skills like teamwork and time management.
+
+We'd like to start by giving a special thanks to everyone who has supported us along the way, may it be past teammates (rest in peace, Astorga), our mentor, parents or all the teachers who have been there to cheer us on our journey through WRO, seriously, it just wouldn't have been the same without you guys.
 
 ---
 
@@ -18,7 +20,7 @@ Welcome to the official project repository for **Chompers Munchers** competing i
 
 | **Ana Melisa Lozano** | **Leonardo Cubeddu** | **Verónica Perozo** |
 | :---: | :---: | :---: |
-| <img src="https://i.postimg.cc/rsRvh9Mp/Whats-App-Image-2026-08-28-at-1-01-26-PM-(1).jpg" width="200"> | <img src="https://i.postimg.cc/rsRvh9Mp/Whats-App-Image-2026-08-28-at-1-01-26-PM-(1).jpg" width="200"> | <img src="https://i.postimg.cc/pLvLFmY4/Whats-App-Image-2026-08-28-at-1-01-26-PM.jpg" width="200"> |
+| <img src="https://i.postimg.cc/2SBfxCWr/Ana-M-jumpscar.png" width="200"> | <img src="https://i.postimg.cc/rsRvh9Mp/Whats-App-Image-2026-08-28-at-1-01-26-PM-(1).jpg" width="200"> | <img src="https://i.postimg.cc/pLvLFmY4/Whats-App-Image-2026-08-28-at-1-01-26-PM.jpg" width="200"> |
 | **Programming & Documentation** | **Mechanics & Construction** | **Logistics & Repository** |
 | • Artificial Vision<br>• Progress Monitoring<br>• Logo Designer | • Main Loop Coding<br>• Main Mechanic<br>• 3D Model Designer | • Main Designer<br>• GitHub Maintenance<br>• Photographer |
 
@@ -38,7 +40,7 @@ Instead of aiming for a overly complex vehicle, our core focus was mastering the
 
 ## 📋 Repository Structure
 
-Navigate through our technical documentation using the directory below:
+Use this as a quick guide map of sorts if you're trying to get from one page to another (unless you're trying to get to the main page, then I have great news for you) or trying to get a brief description of what you could expect from each section of the Github.
 
 - 🛠️ **[Hardware Architecture](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/docs/Hardware_Architecture.md)** Detailed breakdown of sensors, actuators, microcontrollers, and cameras integrated into the chassis.
 
