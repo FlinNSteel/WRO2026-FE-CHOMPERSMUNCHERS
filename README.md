@@ -1,4 +1,4 @@
-# WRO 2026 Future Engineers | Chompers Munchers 🤖🚗
+# WRO 2026 Future Engineers | Chompers Munchers 🍪
 
 <p align="center">
   <img src="https://i.postimg.cc/BZPdwdk4/a1441cc6-af3b-42c9-aee1-90be518ed864.jpg" width="100%" alt="Chompers Munchers Banner">
