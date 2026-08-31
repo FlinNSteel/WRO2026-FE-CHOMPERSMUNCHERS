@@ -91,3 +91,13 @@ With this, we simply ran that value through our PID variables (which we obtained
 Original file in [other's](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/tree/main/other) tab
 
 <img src="https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/other/main-loop-chart.png?raw=true" width="50%" height="50%">
+
+1. Loop runs on a `` While true `` statement as long as the desired amount of laps isn't reached.
+
+2. It will constantly run the `` mantener_linea_recta `` function to ensure it stays moving forward, checking the PID of the robot to make sure that it isn't going rouge.
+
+3. In case it isn't turning, it will run the `` giro_ajuste `` function to ensure that it dosen't crash against a wall while checking its PID.
+
+4. If it does detect that there's a colored line on the ground (meaning it will probably have to turn to the next section), it will activate the ``girar`` function if it goes through all necessary checks and turn to the proper direction before going back to step 2.
+
+5. When the ``While true`` is finished, it will advance a certain amount (set for calibration) to reach the last section)
