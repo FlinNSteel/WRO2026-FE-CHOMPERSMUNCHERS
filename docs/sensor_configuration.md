@@ -33,3 +33,5 @@ Sensors need clean baseline states before executing autonomous routines:
 | **Gyroscope / IMU** | `hub.imu.reset_heading(0)` | Establishes absolute "North" (0°) at startup to prevent rotational drift accumulated from previous runs. |
 | **Motor Encoders** | `motor.reset_angle(0)` | Resets internal angle counts before starting distance-based maneuvers. |
 | **Ultrasonic Sensors** | Setting safety boundaries (`LIMITE_DIST`) | Filters out readings beyond the robot's physical field of interest. |
+---
+**Click [here](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/014eff31a032fad2efbe3ca8a4c5d52e492b31d6/README.md) to go back to the main page.**
