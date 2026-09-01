@@ -110,3 +110,6 @@ Original file in [other's](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNC
 4. If it does detect that there's a colored line on the ground (meaning it will probably have to turn to the next section), it will activate the ``girar`` function if it goes through all necessary checks and turn to the proper direction before going back to step 2.
 
 5. When the ``While true`` is finished, it will advance a certain amount (set for calibration) to reach the last section)
+
+---
+**Click [here](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/014eff31a032fad2efbe3ca8a4c5d52e492b31d6/README.md) to go back to the main page.**
