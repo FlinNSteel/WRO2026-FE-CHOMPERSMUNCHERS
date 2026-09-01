@@ -114,3 +114,6 @@ You might be asking yourself, "Why are the ones with a smaller height the most i
 ### 2.5 Defining the urgency of the blob
 
 To define the urgency of the blob, we use a mix between the "size" mentioned in section 2.4 and the position on x of the block with a "value" of sorts that can range from -2 to 2, this value can increment depending on different characteristics such as the block being far away or the size exceeding certain points along with the modes mentioned before, any blobs that hit -2 are not considered in the moment though still kept in check in case of any changes and the higher the value of a specific blob, the more likely it'll be to be avoided.
+
+---
+**Click [here](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/014eff31a032fad2efbe3ca8a4c5d52e492b31d6/README.md) to go back to the main page.**
