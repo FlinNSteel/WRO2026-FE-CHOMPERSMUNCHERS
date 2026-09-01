@@ -75,4 +75,4 @@ Finding the optimal velocity was an iterative process driven by mechanical chang
 * **Final Configuration (`VELOCIDAD_AVANCE = 20000`):** Adding the OpenMV camera and mounting hardware increased the overall vehicle weight. To ensure smooth motor torque, prevent loss of traction, and give the visual processing system sufficient time to recognize traffic signs, we settled on 20,000 units. This speed provides the perfect balance between stability, power output, and system accuracy.
 
 ---
-**Click [here](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/014eff31a032fad2efbe3ca8a4c5d52e492b31d6/README.md) to go back to the main page.**
+**Click [here](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/main/README.md) to go back to the main page.**
