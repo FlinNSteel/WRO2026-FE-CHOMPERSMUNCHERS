@@ -107,3 +107,5 @@ It details how the sensor was configured, the exact functions used to evaluate t
 </section>
 
 <hr />
+
+**Click [here](https://github.com/FlinNSteel/WRO2026-FE-CHOMPERSMUNCHERS/blob/014eff31a032fad2efbe3ca8a4c5d52e492b31d6/README.md) to go back to the main page.**
