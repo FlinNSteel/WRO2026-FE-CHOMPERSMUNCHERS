@@ -1,0 +1,410 @@
+# vision_ing_v3.py — detección WRO con Y/X calibrados (lente 140°)
+# Pareja hub: main_vision_v3.py + vision_remote_v3.py (canal 'cam', BBBB)
+#
+# Protocolo BBBB:
+#   B0 cmd | B1 y_cm 0-100 | B2 x_code=x_cm+128 | B3 meta
+#   meta: bits0-3 conf | bits4-5 fase | bit6 crítico | bit7 XY válido
+#
+# Fases: 0 vigilar / 1 suave / 2 actuar / 3 emergencia
+# Rojo → derecha | Verde → izquierda
+# Lado crítico: rojo X>+8 cm | verde X<-8 cm (anticipa inicio)
+
+# ADD THIS TO CURSOR11!11!11 REMBER! !!111!1
+import sensor
+import time
+from pupremote import PUPRemoteSensor
+
+CMD_NONE = 0
+CMD_PILLAR_RED = 10
+CMD_PILLAR_GREEN = 11
+CMD_TEST = 127
+
+TEST_MODE = False
+DEBUG_PRINT = True
+
+# --- fases ---
+FASE_VIGILAR = 0
+FASE_SUAVE = 1
+FASE_ACTUAR = 2
+FASE_EMERGENCIA = 3
+
+# --- umbrales Y (cm) — ajustar en pista ---
+# Crítico (rojo a der / verde a izq) anticipa mucho el inicio.
+Y_EMERGENCIA = 18
+Y_ACTUAR = 28
+Y_SUAVE = 38
+Y_SUAVE_CRITICO = 50
+X_CRITICO_CM = 6.0
+
+# --- sensor (cámara al revés) ---
+sensor.reset()
+sensor.set_pixformat(sensor.RGB565)
+sensor.set_framesize(sensor.QQVGA)  # 160x120
+sensor.set_vflip(True)
+sensor.set_hmirror(True)
+sensor.skip_frames(time=2000)
+sensor.set_auto_exposure(False, exposure_us=20000)
+sensor.set_auto_gain(False)
+sensor.set_auto_whitebal(False)
+sensor.set_saturation(3)
+sensor.set_contrast(3)
+
+W_IMG = 160
+H_IMG = 120
+CENTRO_X = W_IMG // 2
+
+# --- umbrales LAB (igual v2 / medir_distancia_xy) ---
+THRESH_ROJO = (11, 31, 22, 50, 14, 37)
+THRESH_VERDE = (6, 19, -24, -11, 4, 20)
+THRESHOLDS = [THRESH_ROJO, THRESH_VERDE]
+
+ROI_X0 = W_IMG * 3 // 100
+ROI_X1 = W_IMG * 97 // 100
+
+PIXELS_THRESH = 60
+AREA_THRESH = 60
+MIN_ALTURA_PX = 8
+MAX_ANCHO_PX = 90
+RATIO_MIN = 0.30
+CONF_MAX = 15
+# maximos de imagen tal vez se tengan q cambiar
+# --- geometría calibrada (medir_distancia_xy.py) ---
+A_OFF = 0.5
+Y_MAX_CM = 100
+H_TABLA = [64.5, 39.8, 26.0, 19.5]
+Y_TABLA = [10.0, 20.0, 30.0, 40.0]
+Y_FILAS = [10, 20, 30, 40]
+X_NODOS = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+CX_TABLA = [
+    [74.0, 85.0, 98.0, 107.0, 115.0, 124.0, 130.0, 136.0, 142.0, 146.0, 150.0],
+    [75.0, 80.7, 87.0, 95.0, 100.0, 106.0, 112.0, 117.0, 122.0, 126.0, 131.0],
+    [73.0, 83.0, 88.0, 93.0, 98.0, 98.0, 102.5, 107.0, 111.0, 115.5, 119.0],
+    [73.0, 77.0, 80.0, 85.0, 89.0, 92.0, 96.0, 100.0, 103.0, 106.0, 110.0],
+]
+
+# Coherencia entre frames (confianza)
+MAX_DY_CM = 18.0
+MAX_DX_CM = 14.0
+
+clock = time.clock()
+print("[vision_ing_v3] Iniciando PUPRemote...")
+p = PUPRemoteSensor(power=True)
+p.add_channel('cam', to_hub_fmt="BBBB")
+print("[vision_ing_v3] Canal 'cam' BBBB listo. Arranca el hub DESPUES.")
+
+
+def blob_attr(blob, name):
+    val = getattr(blob, name)
+    return val() if callable(val) else val
+
+
+def blob_valido(blob):
+    h = blob_attr(blob, 'h')
+    w = blob_attr(blob, 'w')
+    if h < MIN_ALTURA_PX or w > MAX_ANCHO_PX or w == 0:
+        return False
+    if h / w < RATIO_MIN:
+        return False
+    return True
+
+
+def interp_y(lista_h, lista_y, h):
+    n = len(lista_h)
+    h_near = lista_h[0]
+    h_far = lista_h[n - 1]
+
+    if h < h_far:
+        h0, h1 = lista_h[n - 2], lista_h[n - 1]
+        y0, y1 = lista_y[n - 2], lista_y[n - 1]
+        inv = 1.0 / h
+        inv0 = 1.0 / h0
+        inv1 = 1.0 / h1
+        y = y1 + (y1 - y0) * (inv - inv1) / (inv1 - inv0)
+        if y > Y_MAX_CM:
+            y = Y_MAX_CM
+        if y < y1:
+            y = y1
+        return y
+
+    if h > h_near:
+        h0, h1 = lista_h[0], lista_h[1]
+        y0, y1 = lista_y[0], lista_y[1]
+        inv = 1.0 / h
+        inv0 = 1.0 / h0
+        inv1 = 1.0 / h1
+        y = y0 + (y1 - y0) * (inv - inv0) / (inv1 - inv0)
+        if y < 5.0:
+            y = 5.0
+        if y > y0:
+            y = y0
+        return y
+
+    i = 0
+    while i < n - 1 and not (lista_h[i] >= h >= lista_h[i + 1]):
+        i += 1
+    h0, h1 = lista_h[i], lista_h[i + 1]
+    y0, y1 = lista_y[i], lista_y[i + 1]
+    if h0 == h1:
+        return y0
+    t = (h - h0) / (h1 - h0)
+    return y0 + t * (y1 - y0)
+
+
+def estimar_y_cm(h, cx):
+    off = abs(cx - CENTRO_X) / float(CENTRO_X)
+    if off > 1.2:
+        off = 1.2
+    h_corr = h * (1.0 + A_OFF * off * off)
+    y = interp_y(H_TABLA, Y_TABLA, h_corr)
+    return y, h_corr, off
+
+
+def _cx_fila_a_x(cx_abs, fila):
+    row = CX_TABLA[fila]
+    if cx_abs <= row[0]:
+        return 0.0
+    if cx_abs >= row[-1]:
+        return float(X_NODOS[-1])
+    j = 0
+    while j < len(row) - 1 and row[j + 1] < cx_abs:
+        j += 1
+    c0, c1 = row[j], row[j + 1]
+    x0, x1 = X_NODOS[j], X_NODOS[j + 1]
+    if c1 == c0:
+        return float(x0)
+    t = (cx_abs - c0) / (c1 - c0)
+    return x0 + t * (x1 - x0)
+
+
+def cx_a_x_abs(cx_abs, y_cm):
+    if y_cm <= Y_FILAS[0]:
+        return _cx_fila_a_x(cx_abs, 0)
+    if y_cm >= Y_FILAS[-1]:
+        return _cx_fila_a_x(cx_abs, len(Y_FILAS) - 1)
+
+    i = 0
+    while i < len(Y_FILAS) - 1 and Y_FILAS[i + 1] < y_cm:
+        i += 1
+    y0, y1 = Y_FILAS[i], Y_FILAS[i + 1]
+    x0 = _cx_fila_a_x(cx_abs, i)
+    x1 = _cx_fila_a_x(cx_abs, i + 1)
+    t = (y_cm - y0) / (y1 - y0) if y1 != y0 else 0
+    return x0 + t * (x1 - x0)
+
+
+def estimar_x_cm(cx, y_cm):
+    if cx >= CENTRO_X:
+        return cx_a_x_abs(cx, y_cm)
+    cx_mirror = CENTRO_X + (CENTRO_X - cx)
+    return -cx_a_x_abs(cx_mirror, y_cm)
+
+
+def cmd_de_blob(blob):
+    if blob_attr(blob, 'code') == 1:
+        return CMD_PILLAR_RED
+    return CMD_PILLAR_GREEN
+
+
+def es_critico(cmd, x_cm):
+    if cmd == CMD_PILLAR_RED:
+        return x_cm > X_CRITICO_CM
+    if cmd == CMD_PILLAR_GREEN:
+        return x_cm < -X_CRITICO_CM
+    return False
+
+
+def calcular_fase(y_cm, critico):
+    if y_cm <= Y_EMERGENCIA:
+        return FASE_EMERGENCIA
+    if y_cm <= Y_ACTUAR:
+        return FASE_ACTUAR
+    lim_suave = Y_SUAVE_CRITICO if critico else Y_SUAVE
+    if y_cm <= lim_suave:
+        return FASE_SUAVE
+    return FASE_VIGILAR
+
+
+def score_amenaza(y_cm, critico, area):
+    # Mayor score = más amenazante. Prioriza cercanía (Y baja).
+    y_clamp = y_cm
+    if y_clamp > 100:
+        y_clamp = 100
+    score = (100 - y_clamp) * 20
+    if critico:
+        score += 25
+    if area > 2000:
+        area = 2000
+    score += area // 40
+    return score
+
+
+def elegir_blob(blobs):
+    mejor = None
+    mejor_score = -1
+    mejor_y = 0.0
+    mejor_x = 0.0
+    mejor_h = 0
+    mejor_hc = 0.0
+
+    for b in blobs:
+        if not blob_valido(b):
+            continue
+        cx = blob_attr(b, 'cx')
+        if cx < ROI_X0 or cx > ROI_X1:
+            continue
+        h = blob_attr(b, 'h')
+        area = blob_attr(b, 'area')
+        cmd = cmd_de_blob(b)
+        y_cm, h_corr, _off = estimar_y_cm(h, cx)
+        x_cm = estimar_x_cm(cx, y_cm)
+        critico = es_critico(cmd, x_cm)
+        sc = score_amenaza(y_cm, critico, area)
+        if sc > mejor_score:
+            mejor_score = sc
+            mejor = b
+            mejor_y = y_cm
+            mejor_x = x_cm
+            mejor_h = h
+            mejor_hc = h_corr
+
+    return mejor, mejor_y, mejor_x, mejor_h, mejor_hc
+
+
+def sat_byte(v, lo, hi):
+    if v < lo:
+        return lo
+    if v > hi:
+        return hi
+    return v
+
+
+def empaquetar(cmd, y_cm, x_cm, conf, fase, critico, xy_ok):
+    y_b = sat_byte(int(y_cm + 0.5), 0, 100)
+    x_i = int(x_cm + 0.5) if x_cm >= 0 else int(x_cm - 0.5)
+    x_i = sat_byte(x_i, -40, 40)
+    x_code = x_i + 128
+
+    c = sat_byte(conf, 0, CONF_MAX)
+    f = sat_byte(fase, 0, 3)
+    meta = (c & 0x0F) | ((f & 0x03) << 4)
+    if critico:
+        meta |= 0x40
+    if xy_ok:
+        meta |= 0x80
+    return (cmd, y_b, x_code, meta)
+
+def floor_check(h, w):
+    """True si el blob parece pilar (más alto que ancho); False si parece mancha en el suelo."""
+    if w <= 0:
+        return False
+    return h >= w
+
+
+conf = 0
+cmd_prev = CMD_NONE
+y_prev = 0.0
+x_prev = 0.0
+tiene_prev = False
+
+while True:
+    clock.tick()
+
+    if TEST_MODE:
+        p.update_channel('cam', CMD_TEST, 0, 128, 0)
+        p.process()
+        continue
+
+    img = sensor.snapshot()
+    blobs = img.find_blobs(
+        THRESHOLDS,
+        pixels_threshold=PIXELS_THRESH,
+        area_threshold=AREA_THRESH,
+        merge=True,
+        x_stride=2,
+        y_stride=2,
+    )
+
+    for b in blobs:
+        color = (255, 0, 0) if blob_attr(b, 'code') == 1 else (60, 255, 0)
+        img.draw_rectangle(blob_attr(b, 'rect'), color=color, thickness=2)
+        img.draw_cross((blob_attr(b, 'cx'), blob_attr(b, 'cy')), color=color)
+
+    img.draw_line((CENTRO_X, 0, CENTRO_X, H_IMG), color=(200, 200, 200), thickness=1)
+    img.draw_rectangle((ROI_X0, 0, ROI_X1 - ROI_X0, H_IMG), color=(128, 128, 0), thickness=1)
+
+    blob_activo, y_cm, x_cm, h_px, h_corr = elegir_blob(blobs)
+    critico = False
+    fase = FASE_VIGILAR
+    xy_ok = False
+
+    # h_px viene de elegir_blob; w hay que leerlo del blob (h/w locales de otras funcs no existen aquí)
+    w_px = blob_attr(blob_activo, 'w') if blob_activo is not None else 0
+    if blob_activo is not None and not floor_check(h_px, w_px):
+        # Más ancho que alto → probable suelo / falso positivo
+        blob_activo = None
+        img.draw_string((2, 40), "floor skip h=%d w=%d" % (h_px, w_px), color=(255, 128, 0), scale=1)
+
+    if blob_activo is not None:
+        cmd = cmd_de_blob(blob_activo)
+        critico = es_critico(cmd, x_cm)
+        fase = calcular_fase(y_cm, critico)
+        xy_ok = True
+
+        coherente = True
+        if tiene_prev and cmd == cmd_prev:
+            dy = y_cm - y_prev
+            if dy < 0:
+                dy = -dy
+            dx = x_cm - x_prev
+            if dx < 0:
+                dx = -dx
+            if dy > MAX_DY_CM or dx > MAX_DX_CM:
+                coherente = False
+
+        if cmd == cmd_prev and coherente:
+            conf = conf + 1
+            if conf > CONF_MAX:
+                conf = CONF_MAX
+        elif cmd == cmd_prev:
+            conf = conf - 1
+            if conf < 1:
+                conf = 1
+        else:
+            conf = 1
+
+        cmd_prev = cmd
+        y_prev = y_cm
+        x_prev = x_cm
+        tiene_prev = True
+
+        col = (255, 0, 0) if cmd == CMD_PILLAR_RED else (60, 255, 0)
+        img.draw_string((2, 2), "Y=%.0f X=%+.0f" % (y_cm, x_cm), color=(255, 255, 0), scale=1)
+        img.draw_string((2, 14), "f=%d c=%d" % (fase, 1 if critico else 0), color=col, scale=1)
+        img.draw_string((2, 26), "h=%d w=%d hc=%.0f" % (h_px, w_px, h_corr), color=(200, 200, 200), scale=1)
+    else:
+        cmd = CMD_NONE
+        y_cm = 0.0
+        x_cm = 0.0
+        fase = FASE_VIGILAR
+        critico = False
+        xy_ok = False
+        if cmd_prev != CMD_NONE:
+            conf = conf - 2
+            if conf < 0:
+                conf = 0
+        else:
+            conf = 0
+        cmd_prev = CMD_NONE
+        tiene_prev = False
+        img.draw_string((2, 2), "sin pilar", color=(255, 255, 0), scale=1)
+
+    paquete = empaquetar(cmd, y_cm, x_cm, conf, fase, critico, xy_ok)
+    p.update_channel('cam', *paquete)
+    p.process()
+
+    if DEBUG_PRINT:
+        nombre = {CMD_NONE: 'NONE', CMD_PILLAR_RED: 'ROJO',
+                  CMD_PILLAR_GREEN: 'VERDE'}.get(cmd, '?')
+        print("v3 cmd={} ({}) Y={:.0f} X={:+.0f} conf={} fase={} crit={} xy={}".format(
+            cmd, nombre, y_cm, x_cm, conf, fase, 1 if critico else 0, 1 if xy_ok else 0))
+
