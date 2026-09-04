@@ -18,11 +18,15 @@ We'd like to start by giving a special thanks to everyone who has supported us a
   <img src="https://i.postimg.cc/13DNxxJN/Whats-App-Image-2026-08-28-at-1-11-15-PM.jpg" width="60%" alt="Team Photo">
 </p>
 
+<div align="center">
+
 | **Ana Melisa Lozano** | **Leonardo Cubeddu** | **Verónica Perozo** |
 | :---: | :---: | :---: |
-| <img src="https://i.postimg.cc/2SBfxCWr/Ana-M-jumpscar.png" width="200"> | <img src="https://i.postimg.cc/rsRvh9Mp/Whats-App-Image-2026-08-28-at-1-01-26-PM-(1).jpg" width="200"> | <img src="https://i.postimg.cc/pLvLFmY4/Whats-App-Image-2026-08-28-at-1-01-26-PM.jpg" width="200"> |
+| <img src="https://i.postimg.cc/2SBfxCWr/Ana-M-jumpscar.png" width="200" height="267" style="object-fit: cover;"> | <img src="https://i.postimg.cc/MHF1LTSJ/Screenshot-2026-09-04-at-1-11-17-PM.png" width="200" height="267" style="object-fit: cover;"> | <img src="https://i.postimg.cc/fLsC7JzW/Screenshot-2026-09-04-at-1-10-57-PM.png" width="200" height="267" style="object-fit: cover;"> |
 | **Programming & Documentation** | **Mechanics & Construction** | **Logistics & Repository** |
 | • Artificial Vision<br>• Progress Monitoring<br>• Logo Designer | • Main Loop Coding<br>• Main Mechanic<br>• 3D Model Designer | • Main Designer<br>• GitHub Maintenance<br>• Photographer |
+
+</div>
 
 ---
 
